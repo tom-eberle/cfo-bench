@@ -1,0 +1,8 @@
+id: rc-aug
+family: reverse_charge
+language: en
+mode: write
+prompt: |
+  I'm about to file the August 2026 VAT return. Before that, fix the VAT on our foreign software and cloud subscriptions for August.
+workspace: {dir: null, select: none}
+grader: {kind: reverse_charge, months: ["2026-08"]}

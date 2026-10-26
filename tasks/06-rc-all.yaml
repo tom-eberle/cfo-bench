@@ -1,0 +1,8 @@
+id: rc-all
+family: reverse_charge
+language: en
+mode: write
+prompt: |
+  Our foreign software suppliers should be reverse charge, but some were booked with French VAT. Fix the reverse-charge VAT on all of them since October 2025.
+workspace: {dir: null, select: none}
+grader: {kind: reverse_charge, since: "2025-10-01"}

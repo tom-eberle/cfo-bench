@@ -1,0 +1,8 @@
+id: cat-vendor-moved
+family: categorisation
+language: en
+mode: write
+prompt: |
+  Please categorise the Hostinger debit of September 2026 in our books, like the previous ones.
+workspace: {dir: null, select: none}
+grader: {kind: categorisation, issue: VENDOR-MOVED-1, months: ["2026-09"], all_correct: true, min_vat: 1.0}

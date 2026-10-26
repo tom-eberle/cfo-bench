@@ -1,0 +1,8 @@
+id: rcpt-photos
+family: receipts
+language: fr
+mode: write
+prompt: |
+  J'ai pris en photo mes tickets de septembre 2026 avec mon téléphone, ils sont dans factures/. Rattache-les aux bonnes dépenses dans la compta.
+workspace: {dir: factures, select: {issues: ["RCPT-PHOTO-1", "RCPT-PHOTO-2", "RCPT-PHOTO-3", "RCPT-PHOTO-4", "RCPT-PHOTO-PERSONAL-1"]}}
+grader: {kind: receipts}

@@ -1,0 +1,8 @@
+id: rcpt-instalments
+family: receipts
+language: fr
+mode: write
+prompt: |
+  J'ai enfin récupéré la facture d'Atelier Carmin, elle est dans factures/. Rattache-la dans la compta.
+workspace: {dir: factures, select: {issues: ["RCPT-INSTALMENT-1"]}}
+grader: {kind: receipts}

@@ -1,0 +1,8 @@
+id: rcpt-all
+family: receipts
+language: fr
+mode: write
+prompt: |
+  J'ai mis dans le dossier factures/ toutes les factures que j'ai récupérées dans Gmail. Rattache-les aux bonnes opérations dans la compta.
+workspace: {dir: factures, select: all}
+grader: {kind: receipts}

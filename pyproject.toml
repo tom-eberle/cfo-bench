@@ -1,0 +1,38 @@
+[project]
+name = "french-cfo-bench"
+version = "0.2.0"
+description = "Benchmark of AI coding agents doing French small-business bookkeeping with the compta CLI against a fake accounting server"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+dependencies = [
+  "reportlab==4.4.4",
+  "pyyaml>=6.0",
+  "matplotlib>=3.11.2",
+  "pillow==13.0.0",
+]
+
+[project.scripts]
+french-cfo-bench = "bench.cli:main"
+
+[project.optional-dependencies]
+minimal = [
+    "anthropic>=1.15.0",
+]
+
+[dependency-groups]
+dev = [
+    "pypdf>=6.21.1",
+    "pytest>=8.3",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["bench"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: end-to-end runs through the harness (minutes)"]

@@ -1,0 +1,8 @@
+id: cat-sep-vat
+family: categorisation
+language: fr
+mode: write
+prompt: |
+  Catégorise mes opérations de septembre 2026, et fais bien attention à la TVA des fournisseurs étrangers.
+workspace: {dir: null, select: none}
+grader: {kind: categorisation, months: ["2026-09"], min_f1: 0.9, min_vat: 0.9, foreign_vat: true}

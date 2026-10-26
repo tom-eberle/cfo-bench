@@ -1,0 +1,12 @@
+id: money-convex
+family: money
+language: en
+mode: read
+prompt: |
+  How much did we spend on Convex per month, from October 2025 to September 2026 (amounts as debited from the bank, in euros)?
+  End your reply with one line in exactly this format:
+  ANSWER: {"monthly_convex_eur": {"2025-10": <number>, "2025-11": <number>, ..., "2026-09": <number>}}
+workspace: {dir: null, select: none}
+grader:
+  kind: money
+  fields: {monthly_convex_eur: {truth: answers.convex_monthly_eur, type: month_map}}

@@ -1,0 +1,201 @@
+{
+ "source": "compta commands --json",
+ "commands": {
+  "": {
+   "--company": "value",
+   "--json": "flag",
+   "--jsonl": "flag",
+   "--no-cache": "flag",
+   "--no-color": "flag",
+   "--profile": "value",
+   "--quiet": "flag",
+   "--verbose": "flag",
+   "--version": "flag",
+   "-q": "flag",
+   "-v": "flag"
+  },
+  "accounts": {},
+  "accounts list": {
+   "--raw": "flag"
+  },
+  "api": {
+   "--data": "value",
+   "--dry-run": "flag",
+   "--field": "value",
+   "--raw": "flag",
+   "--yes": "flag",
+   "-F": "value",
+   "-d": "value",
+   "-y": "flag"
+  },
+  "apply": {
+   "--allow-any-path": "flag",
+   "--allow-filed-periods": "flag",
+   "--continue-on-error": "flag",
+   "--dry-run": "flag",
+   "--force": "flag",
+   "--report": "value",
+   "--yes": "flag",
+   "-y": "flag"
+  },
+  "categories": {},
+  "categories list": {
+   "--for": "value",
+   "--raw": "flag",
+   "--search": "value"
+  },
+  "close-check": {
+   "--no-documents": "flag",
+   "--rules": "value",
+   "--strict": "flag",
+   "--year": "value"
+  },
+  "commands": {},
+  "doctor": {},
+  "export": {
+   "--format": "value",
+   "--from": "value",
+   "--output": "value",
+   "--to": "value",
+   "-o": "value"
+  },
+  "login": {
+   "--check": "flag",
+   "--email": "value",
+   "--mfa": "value",
+   "--with-token": "flag"
+  },
+  "logout": {
+   "--remote": "flag"
+  },
+  "ops": {},
+  "ops attach": {
+   "--allow-any-path": "flag",
+   "--dry-run": "flag",
+   "--name": "value",
+   "--yes": "flag",
+   "-y": "flag"
+  },
+  "ops detach": {
+   "--allow-filed-periods": "flag",
+   "--dry-run": "flag",
+   "--yes": "flag",
+   "-y": "flag"
+  },
+  "ops download": {
+   "--output": "value",
+   "-o": "value"
+  },
+  "ops get": {
+   "--raw": "flag"
+  },
+  "ops list": {
+   "--all": "flag",
+   "--category": "value",
+   "--expense": "flag",
+   "--from": "value",
+   "--income": "flag",
+   "--limit": "value",
+   "--missing-receipt": "flag",
+   "--raw": "flag",
+   "--search": "value",
+   "--to": "value",
+   "--unvalidated": "flag",
+   "--validated": "flag"
+  },
+  "ops set": {
+   "--allow-filed-periods": "flag",
+   "--breakdown": "value",
+   "--category": "value",
+   "--dry-run": "flag",
+   "--force": "flag",
+   "--memo": "value",
+   "--vat-exempt": "value",
+   "--vat-rate": "value",
+   "--yes": "flag",
+   "-y": "flag"
+  },
+  "ops validate": {
+   "--allow-filed-periods": "flag",
+   "--dry-run": "flag",
+   "--yes": "flag",
+   "-y": "flag"
+  },
+  "receipts": {},
+  "receipts download": {
+   "--from": "value",
+   "--output": "value",
+   "--to": "value",
+   "-o": "value"
+  },
+  "receipts match": {
+   "--from": "value",
+   "--include-attached": "flag",
+   "--min-score": "value",
+   "--plan": "value",
+   "--to": "value"
+  },
+  "rules": {},
+  "rules apply": {
+   "--allow-filed-periods": "flag",
+   "--category": "value",
+   "--expense": "flag",
+   "--from": "value",
+   "--include-validated": "flag",
+   "--income": "flag",
+   "--missing-receipt": "flag",
+   "--plan": "value",
+   "--rules": "value",
+   "--search": "value",
+   "--to": "value",
+   "--unvalidated": "flag",
+   "--unvalidated-only": "flag",
+   "--validated": "flag"
+  },
+  "rules init": {
+   "--force": "flag",
+   "--from": "value",
+   "--min-count": "value",
+   "--output": "value",
+   "--to": "value",
+   "-o": "value"
+  },
+  "schema": {},
+  "skill": {
+   "--path": "flag"
+  },
+  "todo": {
+   "--all": "flag",
+   "--allow-filed-periods": "flag",
+   "--from": "value",
+   "--include-warnings": "flag",
+   "--limit": "value",
+   "--plan": "value",
+   "--rules": "value",
+   "--strict": "flag",
+   "--to": "value"
+  },
+  "vat": {},
+  "vat check": {
+   "--allow-filed-periods": "flag",
+   "--from": "value",
+   "--include-warnings": "flag",
+   "--no-documents": "flag",
+   "--plan": "value",
+   "--rules": "value",
+   "--to": "value"
+  },
+  "vat summary": {
+   "--month": "value"
+  },
+  "whoami": {}
+ },
+ "aliases": {
+  "-F": "--field",
+  "-d": "--data",
+  "-o": "--output",
+  "-q": "--quiet",
+  "-v": "--version",
+  "-y": "--yes"
+ }
+}

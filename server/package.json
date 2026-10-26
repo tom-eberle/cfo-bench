@@ -1,0 +1,11 @@
+{
+  "name": "french-cfo-bench-server",
+  "private": true,
+  "type": "module",
+  "description": "Compta API server for french-cfo-bench (no dependencies; Node >= 22.18, native type stripping)",
+  "engines": { "node": ">=22.18" },
+  "scripts": {
+    "start": "node src/main.ts",
+    "test": "node --test 'test/*.test.ts'"
+  }
+}

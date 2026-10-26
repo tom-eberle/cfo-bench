@@ -1,0 +1,8 @@
+id: rc-2026
+family: reverse_charge
+language: fr
+mode: write
+prompt: |
+  Mon comptable m'a dit que les factures de mes fournisseurs étrangers (Google Cloud, Meta, Claude…) ont été passées avec de la TVA française déductible alors qu'elles ne devraient pas. Corrige ça pour 2026.
+workspace: {dir: null, select: none}
+grader: {kind: reverse_charge, since: "2026-01-01"}

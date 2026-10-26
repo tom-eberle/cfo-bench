@@ -1,0 +1,12 @@
+id: money-revenue-by-client
+family: money
+language: en
+mode: read
+prompt: |
+  How much did each customer pay us from January to September 2026? Count what actually reached the bank in euros, net of anything we refunded to them; list Apple and Google Play payouts as their own lines. Leave out grants, transfers between our accounts and money from the founders.
+  End your reply with one line in exactly this format, one key per customer (its name as on the bank line):
+  ANSWER: {"received_by_customer_eur": {"<customer>": <number>, ...}}
+workspace: {dir: null, select: none}
+grader:
+  kind: money
+  fields: {received_by_customer_eur: {truth: answers.revenue_by_client_2026_eur, type: vendor_map}}

@@ -1,0 +1,14 @@
+id: money-todo
+family: money
+language: fr
+mode: read
+prompt: |
+  Qu'est-ce qui cloche dans ma compta ? Je veux surtout savoir quelles déclarations de TVA sont en retard et combien d'opérations ne sont pas encore catégorisées.
+  Termine ta réponse par une ligne exactement au format :
+  ANSWER: {"overdue_vat_returns": ["AAAA-MM", ...], "uncategorized_count": <entier>}
+workspace: {dir: null, select: none}
+grader:
+  kind: money
+  fields:
+    overdue_vat_returns: {truth: answers.overdue_vat_returns, type: list}
+    uncategorized_count: {truth: answers.uncategorized_count_2026, type: int}

@@ -1,0 +1,14 @@
+id: close-aug
+family: compound
+language: fr
+mode: write
+prompt: |
+  Je dois enfin déposer la TVA d'août 2026. Avant ça, fais la clôture du mois dans la compta : catégorise ce qui reste, corrige la TVA des fournisseurs étrangers, rattache les justificatifs que j'ai mis dans factures/, et dis-moi ce que je dois encore faire.
+workspace: {dir: factures, select: {op_months: ["2026-08"], issues: ["RCPT-NOMATCH-1", "RCPT-NOMATCH-2", "RCPT-WRONG-MONTH-1"]}}
+limits: {max_responses: 100, timeout_s: 2400}
+grader:
+  kind: compound
+  parts:
+    - {kind: categorisation, months: ["2026-08"], all_correct: true, min_vat: 1.0}
+    - {kind: reverse_charge, months: ["2026-08"]}
+    - {kind: receipts, months: ["2026-08"]}

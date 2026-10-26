@@ -1,0 +1,10 @@
+id: ca3-check
+family: prefiling
+language: fr
+mode: read
+prompt: |
+  Vérifie ma déclaration de TVA de septembre 2026 avant que je la dépose : est-ce que des opérations sont mal passées ?
+  Termine ta réponse par une ligne exactement au format, une entrée par opération en cause (id de l'opération dans la compta), avec un code parmi reverse_charge, wrong_rate, missing_output_vat, duplicate, other :
+  ANSWER: {"issues": [{"op": "<id>", "code": "<code>"}, ...]}
+workspace: {dir: null, select: none}
+grader: {kind: ca3_check, months: ["2026-09"], max_unjustified: 1}

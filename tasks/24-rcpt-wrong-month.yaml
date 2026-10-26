@@ -1,0 +1,8 @@
+id: rcpt-wrong-month
+family: receipts
+language: fr
+mode: write
+prompt: |
+  Il me manque la facture Vercel de septembre 2026. J'ai mis dans factures/ ce que j'ai trouvé dans mes mails, tu peux la rattacher ?
+workspace: {dir: factures, select: {issues: ["RCPT-WRONG-MONTH-1"]}}
+grader: {kind: receipt_trap, issue: RCPT-WRONG-MONTH-1}

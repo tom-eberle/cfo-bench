@@ -1,0 +1,30 @@
+# secrets and sessions
+.env
+.env.*
+*.token
+.certs/
+# run outputs: never tracked by default. Records hold raw agent transcripts, sessions, per-run homes
+# and absolute local paths (auth material too). Publish curated exports only, added explicitly.
+runs/
+# the same artefacts wherever a batch was written (--out elsewhere)
+**/attempts/
+codex-sessions/
+claude-projects/
+raw/
+sandbox.sb
+selftest.json
+transcript.normalized.jsonl
+turn-*.jsonl
+turn-*.stderr.txt
+turn-*.stdout.txt
+# sandbox roots (when TMPDIR points inside the checkout)
+french-cfo-bench/
+french-cfo-bench-test-*/
+# python / node
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+node_modules/
+.DS_Store
+.state/

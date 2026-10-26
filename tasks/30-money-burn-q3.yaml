@@ -1,0 +1,12 @@
+id: money-burn-q3
+family: money
+language: fr
+mode: read
+prompt: |
+  Combien on dépense par mois en moyenne sur le troisième trimestre 2026 (juillet, août, septembre) ? Je veux toutes les sorties d'argent de nos comptes bancaires, salaires et charges compris, mais sans les virements entre nos propres comptes et sans la TVA reversée aux impôts.
+  Termine ta réponse par une ligne exactement au format :
+  ANSWER: {"burn_monthly_avg_eur": <nombre>}
+workspace: {dir: null, select: none}
+grader:
+  kind: money
+  fields: {burn_monthly_avg_eur: {truth: answers.burn_q3_2026_eur, type: number}}

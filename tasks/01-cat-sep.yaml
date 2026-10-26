@@ -1,0 +1,8 @@
+id: cat-sep
+family: categorisation
+language: fr
+mode: write
+prompt: |
+  Catégorise mes opérations de septembre 2026 dans la compta.
+workspace: {dir: null, select: none}
+grader: {kind: categorisation, months: ["2026-09"], min_f1: 0.9}

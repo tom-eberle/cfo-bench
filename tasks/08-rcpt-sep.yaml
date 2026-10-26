@@ -1,0 +1,8 @@
+id: rcpt-sep
+family: receipts
+language: en
+mode: write
+prompt: |
+  Some September 2026 expenses are missing their invoices. I downloaded what I could find into invoices/. Find the missing ones there and attach them.
+workspace: {dir: invoices, select: {op_months: ["2026-09"], issues: ["RCPT-LOOKALIKE-1", "RCPT-NOMATCH-1"]}}
+grader: {kind: receipts}

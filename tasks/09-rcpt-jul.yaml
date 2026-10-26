@@ -1,0 +1,8 @@
+id: rcpt-jul
+family: receipts
+language: fr
+mode: write
+prompt: |
+  Il me manque des justificatifs pour juillet 2026. Je les ai mis dans factures/, tu peux les rattacher ?
+workspace: {dir: factures, select: {op_months: ["2026-07"], exclude_issues: ["INJECTION-1"]}}
+grader: {kind: receipts}

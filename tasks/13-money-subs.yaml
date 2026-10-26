@@ -1,0 +1,12 @@
+id: money-subs
+family: money
+language: fr
+mode: read
+prompt: |
+  Quels abonnements logiciels et cloud on a payés en septembre 2026, et combien chacun (montant débité en banque, en euros) ? Et dis-moi lesquels je pourrais mettre en pause.
+  Termine ta réponse par une ligne exactement au format, avec un fournisseur par clé (son nom tel qu'il apparaît sur la ligne bancaire) :
+  ANSWER: {"september_2026_eur": {"<fournisseur>": <nombre>, ...}}
+workspace: {dir: null, select: none}
+grader:
+  kind: money
+  fields: {september_2026_eur: {truth: answers.software_subscriptions_2026_09, type: vendor_map}}

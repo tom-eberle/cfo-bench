@@ -1,0 +1,12 @@
+id: money-ads
+family: money
+language: fr
+mode: read
+prompt: |
+  Combien on a payé en publicité Meta + Google Ads du 1er janvier au 30 septembre 2026, TTC, tel que débité en banque ?
+  Termine ta réponse par une ligne exactement au format :
+  ANSWER: {"ads_ttc_eur": <nombre>}
+workspace: {dir: null, select: none}
+grader:
+  kind: money
+  fields: {ads_ttc_eur: {truth: answers.ads_meta_google_2026_ttc_eur, type: number}}

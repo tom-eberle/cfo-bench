@@ -1,0 +1,8 @@
+id: cat-split
+family: categorisation
+language: fr
+mode: write
+prompt: |
+  Il y a une grosse dépense LDLC de 1 890 € fin septembre 2026 qui n'est pas catégorisée. Tu peux la passer correctement ?
+workspace: {dir: null, select: none}
+grader: {kind: split, issue: SPLIT-NEEDED-1, months: ["2026-09"]}

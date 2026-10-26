@@ -1,0 +1,681 @@
+{
+  "api_token": "synthetic-test-session-999999",
+  "as_of": "2026-08-20",
+  "bank_accounts": [
+    {
+      "balance": {
+        "amount": 1234.56,
+        "updated_at": "2026-08-20T08:00:00.000Z"
+      },
+      "bank_name": "Example Bank",
+      "closed": false,
+      "currency": "EUR",
+      "hidden": false,
+      "id": 501,
+      "name": "Main account"
+    }
+  ],
+  "categories": [
+    {
+      "assignable": true,
+      "default_vat": {
+        "optional": false,
+        "rate": 0.2
+      },
+      "direction": "out",
+      "group": {
+        "id": 2,
+        "name": "Frais de fonctionnement"
+      },
+      "hidden": false,
+      "id": 77,
+      "label": "Logiciels et abonnements",
+      "ledger_account": "626100",
+      "ledger_accounts": [
+        "626100"
+      ],
+      "parent_id": null
+    },
+    {
+      "assignable": true,
+      "default_vat": {
+        "optional": false,
+        "rate": 0.2
+      },
+      "direction": "out",
+      "group": {
+        "id": 2,
+        "name": "Frais de fonctionnement"
+      },
+      "hidden": false,
+      "id": 69,
+      "label": "Publicité",
+      "ledger_account": "623000",
+      "ledger_accounts": [
+        "623000"
+      ],
+      "parent_id": null
+    },
+    {
+      "assignable": true,
+      "default_vat": null,
+      "direction": "out",
+      "group": {
+        "id": 5,
+        "name": "Banque"
+      },
+      "hidden": false,
+      "id": 12,
+      "label": "Frais bancaires",
+      "ledger_account": "627000",
+      "ledger_accounts": [
+        "627000"
+      ],
+      "parent_id": null
+    },
+    {
+      "assignable": true,
+      "default_vat": {
+        "optional": false,
+        "rate": 0.2
+      },
+      "direction": "in",
+      "group": {
+        "id": 7,
+        "name": "Ventes"
+      },
+      "hidden": false,
+      "id": 301,
+      "label": "Prestations de services",
+      "ledger_account": "706000",
+      "ledger_accounts": [
+        "706000"
+      ],
+      "parent_id": null
+    },
+    {
+      "assignable": true,
+      "deductible_share": 0.8,
+      "default_vat": {
+        "optional": false,
+        "rate": 0.2
+      },
+      "direction": "out",
+      "group": {
+        "id": 8,
+        "name": "Véhicules"
+      },
+      "hidden": false,
+      "id": 610,
+      "label": "Carburant",
+      "ledger_account": "606100",
+      "ledger_accounts": [
+        "606100"
+      ],
+      "parent_id": null
+    },
+    {
+      "assignable": true,
+      "default_vat": null,
+      "direction": "both",
+      "group": {
+        "id": 9,
+        "name": "Trésorerie"
+      },
+      "hidden": false,
+      "id": 702,
+      "label": "Transfert interne fictif",
+      "ledger_account": "580000",
+      "ledger_accounts": [
+        "580000"
+      ],
+      "parent_id": null
+    }
+  ],
+  "company": {
+    "id": 999999,
+    "legal_name": "Fictional Test Widgets SAS",
+    "siren": "000000000",
+    "trade_name": "Fictional Test Widgets",
+    "vat_regime": "monthly"
+  },
+  "files": {
+    "00000000-0000-4000-8000-000000100200": "files/saas-2026-06.pdf",
+    "00000000-0000-4000-8000-000000100300": "files/cloud-2026-07.pdf"
+  },
+  "fiscal_years": [
+    {
+      "closed": true,
+      "end_date": "2025-12-31",
+      "id": 1,
+      "start_date": "2025-01-01"
+    },
+    {
+      "closed": false,
+      "end_date": "2026-12-31",
+      "id": 2,
+      "start_date": "2026-01-01"
+    }
+  ],
+  "id": "mini-test",
+  "purchase_invoices": {
+    "vi-1003": {
+      "currency": "EUR",
+      "extraction_status": "done",
+      "file": {
+        "download_url": "/v1/files/00000000-0000-4000-8000-000000100300/download",
+        "id": null,
+        "name": "cloud-2026-07.pdf"
+      },
+      "id": "vi-1003",
+      "issue_date": "2026-07-04",
+      "supplier": {
+        "country": "US",
+        "name": "Fictional Cloud Inc",
+        "vat_number": null
+      },
+      "total_amount": 120,
+      "transactions": [
+        {
+          "amount": 120,
+          "date": "2026-07-05",
+          "id": 1003
+        }
+      ],
+      "vat_amount": 0,
+      "vat_lines": [
+        {
+          "exemption_code": "VATEX-EU-AE",
+          "net_amount": 120,
+          "rate": 0.2,
+          "tax_category": "AE",
+          "vat_amount": 0
+        }
+      ]
+    }
+  },
+  "schema_version": 2,
+  "seed": 0,
+  "transactions": [
+    {
+      "amount": 48,
+      "attachments": [],
+      "bank": {
+        "account_id": 501,
+        "amount": -48,
+        "currency": "EUR",
+        "original_amount": null,
+        "original_currency": null
+      },
+      "company_id": 999999,
+      "date": "2025-11-10",
+      "direction": "out",
+      "id": 1001,
+      "issues": [],
+      "label": "PRLV FICTIONAL ORBIT TOOLS",
+      "lines": [
+        {
+          "amount": 48,
+          "category_id": 77,
+          "direction": "out",
+          "id": 10011,
+          "refund": false,
+          "tax": {
+            "amount": 8,
+            "deductible": 8,
+            "exemption_reason": null,
+            "overridden": false,
+            "rate": 0.2,
+            "treatment": "taxable"
+          }
+        }
+      ],
+      "lock": {
+        "manual": false,
+        "period": true
+      },
+      "note": null,
+      "source": "bank",
+      "status": "active",
+      "validated": true
+    },
+    {
+      "amount": 120,
+      "attachments": [
+        {
+          "document": {
+            "file": {
+              "download_url": "/v1/files/00000000-0000-4000-8000-000000100200/download",
+              "id": 1002000,
+              "mime_type": "application/pdf",
+              "name": "saas-2026-06.pdf"
+            },
+            "id": 100200,
+            "kind": "other",
+            "purchase_invoice_id": null
+          },
+          "id": 100200
+        }
+      ],
+      "bank": {
+        "account_id": 501,
+        "amount": -120,
+        "currency": "EUR",
+        "original_amount": null,
+        "original_currency": null
+      },
+      "company_id": 999999,
+      "date": "2026-06-12",
+      "direction": "out",
+      "id": 1002,
+      "issues": [],
+      "label": "CB FICTIONAL SAAS INC",
+      "lines": [
+        {
+          "amount": 120,
+          "category_id": 77,
+          "direction": "out",
+          "id": 10021,
+          "refund": false,
+          "tax": {
+            "amount": 20,
+            "deductible": 20,
+            "exemption_reason": null,
+            "overridden": false,
+            "rate": 0.2,
+            "treatment": "taxable"
+          }
+        }
+      ],
+      "lock": {
+        "manual": false,
+        "period": false
+      },
+      "note": null,
+      "source": "bank",
+      "status": "active",
+      "validated": true
+    },
+    {
+      "amount": 120,
+      "attachments": [
+        {
+          "document": {
+            "file": {
+              "download_url": "/v1/files/00000000-0000-4000-8000-000000100300/download",
+              "id": 1003000,
+              "mime_type": "application/pdf",
+              "name": "cloud-2026-07.pdf"
+            },
+            "id": 100300,
+            "kind": "purchase_invoice",
+            "purchase_invoice_id": "vi-1003"
+          },
+          "id": 100300
+        }
+      ],
+      "bank": {
+        "account_id": 501,
+        "amount": -120,
+        "currency": "EUR",
+        "original_amount": null,
+        "original_currency": null
+      },
+      "company_id": 999999,
+      "date": "2026-07-05",
+      "direction": "out",
+      "id": 1003,
+      "issues": [],
+      "label": "CB FICTIONAL CLOUD INC",
+      "lines": [
+        {
+          "amount": 120,
+          "category_id": 77,
+          "direction": "out",
+          "id": 10031,
+          "refund": false,
+          "tax": {
+            "amount": 20,
+            "deductible": 20,
+            "exemption_reason": null,
+            "overridden": false,
+            "rate": 0.2,
+            "treatment": "taxable"
+          }
+        }
+      ],
+      "lock": {
+        "manual": false,
+        "period": false
+      },
+      "note": null,
+      "source": "bank",
+      "status": "active",
+      "validated": true
+    },
+    {
+      "amount": 36,
+      "attachments": [],
+      "bank": {
+        "account_id": 501,
+        "amount": -36,
+        "currency": "EUR",
+        "original_amount": null,
+        "original_currency": null
+      },
+      "company_id": 999999,
+      "date": "2026-07-14",
+      "direction": "out",
+      "id": 1004,
+      "issues": [],
+      "label": "CB PAPETERIE FICTIVE",
+      "lines": [
+        {
+          "amount": 36,
+          "category_id": null,
+          "direction": "out",
+          "id": 10041,
+          "refund": false,
+          "tax": {
+            "amount": 0,
+            "deductible": 0,
+            "exemption_reason": null,
+            "overridden": false,
+            "rate": null,
+            "treatment": "taxable"
+          }
+        }
+      ],
+      "lock": {
+        "manual": false,
+        "period": false
+      },
+      "note": null,
+      "source": "bank",
+      "status": "active",
+      "validated": false
+    },
+    {
+      "amount": 48,
+      "attachments": [],
+      "bank": {
+        "account_id": 501,
+        "amount": -48,
+        "currency": "EUR",
+        "original_amount": null,
+        "original_currency": null
+      },
+      "company_id": 999999,
+      "date": "2026-07-20",
+      "direction": "out",
+      "id": 1005,
+      "issues": [],
+      "label": "PRLV NIMBUS HOSTING",
+      "lines": [
+        {
+          "amount": 48,
+          "category_id": 77,
+          "direction": "out",
+          "id": 10051,
+          "refund": false,
+          "tax": {
+            "amount": 8,
+            "deductible": 8,
+            "exemption_reason": null,
+            "overridden": false,
+            "rate": 0.2,
+            "treatment": "taxable"
+          }
+        }
+      ],
+      "lock": {
+        "manual": false,
+        "period": false
+      },
+      "note": null,
+      "source": "bank",
+      "status": "active",
+      "validated": false
+    },
+    {
+      "amount": 1200,
+      "attachments": [],
+      "bank": {
+        "account_id": 501,
+        "amount": 1200,
+        "currency": "EUR",
+        "original_amount": null,
+        "original_currency": null
+      },
+      "company_id": 999999,
+      "date": "2026-07-25",
+      "direction": "in",
+      "id": 1006,
+      "issues": [],
+      "label": "VIR CLIENT EXEMPLE SAS",
+      "lines": [
+        {
+          "amount": 1200,
+          "category_id": 301,
+          "direction": "in",
+          "id": 10061,
+          "refund": false,
+          "tax": {
+            "amount": 200,
+            "deductible": 200,
+            "exemption_reason": null,
+            "overridden": false,
+            "rate": 0.2,
+            "treatment": "taxable"
+          }
+        }
+      ],
+      "lock": {
+        "manual": false,
+        "period": false
+      },
+      "note": null,
+      "source": "bank",
+      "status": "active",
+      "validated": true
+    },
+    {
+      "amount": 6,
+      "attachments": [],
+      "bank": {
+        "account_id": 501,
+        "amount": -6,
+        "currency": "EUR",
+        "original_amount": null,
+        "original_currency": null
+      },
+      "company_id": 999999,
+      "date": "2026-08-03",
+      "direction": "out",
+      "frozen": true,
+      "id": 1007,
+      "issues": [],
+      "label": "FRAIS BANCAIRES FICTIFS",
+      "lines": [
+        {
+          "amount": 6,
+          "category_id": 12,
+          "direction": "out",
+          "id": 10071,
+          "refund": false,
+          "tax": {
+            "amount": 0,
+            "deductible": 0,
+            "exemption_reason": null,
+            "overridden": false,
+            "rate": null,
+            "treatment": "out_of_scope"
+          }
+        }
+      ],
+      "lock": {
+        "manual": false,
+        "period": false
+      },
+      "note": null,
+      "source": "bank",
+      "status": "active",
+      "validated": true
+    },
+    {
+      "amount": 60,
+      "attachments": [],
+      "bank": {
+        "account_id": 501,
+        "amount": -60,
+        "currency": "EUR",
+        "original_amount": null,
+        "original_currency": null
+      },
+      "company_id": 999999,
+      "date": "2026-08-10",
+      "direction": "out",
+      "id": 1008,
+      "issues": [],
+      "label": "CB STATION FICTIVE",
+      "lines": [
+        {
+          "amount": 60,
+          "category_id": 610,
+          "direction": "out",
+          "id": 10081,
+          "refund": false,
+          "tax": {
+            "amount": 10,
+            "deductible": 8,
+            "exemption_reason": null,
+            "overridden": false,
+            "rate": 0.2,
+            "treatment": "taxable"
+          }
+        }
+      ],
+      "lock": {
+        "manual": false,
+        "period": false
+      },
+      "note": null,
+      "source": "bank",
+      "status": "active",
+      "validated": false
+    }
+  ],
+  "user": {
+    "email": "someone@example.test",
+    "id": 4242,
+    "name": {
+      "full": "Alex Example"
+    }
+  },
+  "vat_returns": [
+    {
+      "boxes": {
+        "20": 20,
+        "23": 20,
+        "25": 20,
+        "27": 20
+      },
+      "status": "filed",
+      "summary": {
+        "confirmed_at": "2026-07-18T09:00:00.000Z",
+        "due_date": "2026-07-21",
+        "filed": true,
+        "form_year": 2026,
+        "id": 61,
+        "overdue": false,
+        "period_end": "2026-06-30",
+        "period_start": "2026-06-01",
+        "return_type": "CA3",
+        "tax": "vat",
+        "title": "TVA - Juin 2026"
+      }
+    },
+    {
+      "boxes": {
+        "08": 1000,
+        "08_tax": 200,
+        "09": 0,
+        "09_tax": 0,
+        "16": 200,
+        "19": 0,
+        "20": 28,
+        "20_domestic": 28,
+        "20_eu_reverse_charge": 0,
+        "20_non_eu_reverse_charge": 0,
+        "22": 20,
+        "23": 48,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 152,
+        "32": 152,
+        "9B": 0,
+        "9B_tax": 0,
+        "A1": 1000,
+        "A3": 0,
+        "A3_eu": 0,
+        "A3_non_eu": 0,
+        "E2": 0
+      },
+      "status": "to_file",
+      "summary": {
+        "due_date": "2026-08-21",
+        "filed": false,
+        "form_year": 2026,
+        "id": 71,
+        "overdue": true,
+        "period_end": "2026-07-31",
+        "period_start": "2026-07-01",
+        "return_type": "CA3",
+        "tax": "vat",
+        "title": "TVA - Juillet 2026"
+      }
+    },
+    {
+      "boxes": {
+        "08": 0,
+        "08_tax": 0,
+        "09": 0,
+        "09_tax": 0,
+        "16": 0,
+        "19": 0,
+        "20": 8,
+        "20_domestic": 8,
+        "20_eu_reverse_charge": 0,
+        "20_non_eu_reverse_charge": 0,
+        "22": 20,
+        "23": 28,
+        "25": 28,
+        "26": 0,
+        "27": 28,
+        "28": 0,
+        "32": 0,
+        "9B": 0,
+        "9B_tax": 0,
+        "A1": 0,
+        "A3": 0,
+        "A3_eu": 0,
+        "A3_non_eu": 0,
+        "E2": 0
+      },
+      "status": "upcoming",
+      "summary": {
+        "due_date": "2026-09-21",
+        "filed": false,
+        "form_year": 2026,
+        "id": 81,
+        "overdue": false,
+        "period_end": "2026-08-31",
+        "period_start": "2026-08-01",
+        "return_type": "CA3",
+        "tax": "vat",
+        "title": "TVA - Août 2026"
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+id: money-google-net
+family: money
+language: fr
+mode: read
+prompt: |
+  Combien nous a coûté Google (Google Cloud + Google Ads) du 1er janvier au 30 septembre 2026, en montants débités en banque et avoirs déduits ?
+  Termine ta réponse par une ligne exactement au format :
+  ANSWER: {"google_net_eur": <nombre>}
+workspace: {dir: null, select: none}
+grader:
+  kind: money
+  fields: {google_net_eur: {truth: answers.google_2026_ht_net_eur_correct, type: number}}

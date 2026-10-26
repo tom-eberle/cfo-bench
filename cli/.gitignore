@@ -1,0 +1,8 @@
+node_modules/
+dist/
+coverage/
+.env*
+*.plan.json
+*.report.json
+.discovery/
+.local/

@@ -1,0 +1,15 @@
+id: money-cash-in
+family: money
+language: en
+mode: read
+prompt: |
+  How much money came in during Q2 2026 (1 April to 30 June), excluding VAT as recorded in our books: from French clients, from foreign clients, and from app-store payouts (Apple, Google Play)? Leave out grants, transfers between our accounts and anything that isn't a customer payment.
+  End your reply with one line in exactly this format:
+  ANSWER: {"france_ht_eur": <number>, "abroad_ht_eur": <number>, "app_stores_eur": <number>}
+workspace: {dir: null, select: none}
+grader:
+  kind: money
+  fields:
+    france_ht_eur: {truth: answers.revenue_q2_2026_ht_eur.france, type: number}
+    abroad_ht_eur: {truth: answers.revenue_q2_2026_ht_eur.export, type: number}
+    app_stores_eur: {truth: answers.revenue_q2_2026_ht_eur.app_stores, type: number}

@@ -1,0 +1,8 @@
+id: cat-aug
+family: categorisation
+language: en
+mode: write
+prompt: |
+  Can you categorise the August 2026 transactions that are still uncategorised in our books?
+workspace: {dir: null, select: none}
+grader: {kind: categorisation, months: ["2026-08"], all_correct: true}

@@ -1,0 +1,12 @@
+id: money-convex-usd
+family: money
+language: en
+mode: read
+prompt: |
+  Convex bills us in US dollars. How many dollars did we pay them in total from January to September 2026?
+  End your reply with one line in exactly this format:
+  ANSWER: {"convex_usd": <number>}
+workspace: {dir: null, select: none}
+grader:
+  kind: money
+  fields: {convex_usd: {truth: answers.convex_2026_usd, type: number}}
