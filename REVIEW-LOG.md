@@ -145,3 +145,13 @@ identical. The published rows come from that regrade and equal the original grad
 field; the tables are identical. Local paths and the pre-release names were removed from the
 rows, and raw transcripts are not published. The export checks and a fresh-clone test (tests,
 self-test, the report regenerated from the published rows) passed.
+
+## Release 0.2.1: README for non-engineers
+
+The README was rewritten so that a reader without an engineering background can see what the
+36 requests are and what the results say; the technical part moved to its end. The reviewer
+checked every number and claim against the published rows, the task files, the scenario truth
+and DESIGN.md. It found 12 statements that described the grading rules too loosely (for example,
+that every supplied document must be attached, when optional receipts may stay unattached; that
+the approval protocol applies to read-only questions) and 2 unclear terms. All were fixed. No
+code or result changed.
