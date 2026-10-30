@@ -1,7 +1,7 @@
 """Per-run sandbox (DESIGN.md §5): run directory, `compta` wrapper, logged-in compta CLI config,
 mailbox subset, seatbelt profile, environment allow-list, process-group execution, self-test.
 
-Layout (`$TMPDIR/french-cfo-bench/<run-id>/`, real path):
+Layout (`$TMPDIR/cfo-bench/<run-id>/`, real path):
 
     work/          the agent's cwd: the task's mailbox subset (work/<dir>/) + the skill
     home/          HOME for the agent and for compta (XDG config/cache inside)
@@ -308,7 +308,7 @@ def _write_wrapper(sb: Sandbox) -> None:
     rt = sb.runtime
     q = shell_quote
     script = f"""#!/bin/sh
-# french-cfo-bench: the compta CLI (compta-cli {rt.version}, source tree {rt.tree_sha256[:12]}) against the fake Compta server.
+# cfo-bench: the compta CLI (compta-cli {rt.version}, source tree {rt.tree_sha256[:12]}) against the fake Compta server.
 unset COMPTA_SESSION COMPTA_COMPANY
 export COMPTA_API_BASE={q(f"https://localhost:{sb.api_port}")}
 export NODE_EXTRA_CA_CERTS={q(str(rt.ca_pem))}
@@ -317,7 +317,7 @@ export COMPTA_PROFILE=bench
 export HOME={q(str(sb.home))}
 export XDG_CONFIG_HOME={q(str(sb.home / ".config"))}
 export XDG_CACHE_HOME={q(str(sb.home / ".cache"))}
-export FRENCH_CFO_BENCH_NOW={q(sb.as_of)}
+export CFO_BENCH_NOW={q(sb.as_of)}
 exec {q(str(sb.node))} --import {q(rt.clock_shim.as_uri())} {q(str(rt.cli_js))} "$@"
 """
     wrapper = sb.bin / "compta"
@@ -400,7 +400,7 @@ def render_profile(sb: Sandbox) -> str:
     ]
     lines = [
         "(version 1)",
-        f";; french-cfo-bench seatbelt profile for run {sb.run_id} (generated; see bench/harness/README.md)",
+        f";; cfo-bench seatbelt profile for run {sb.run_id} (generated; see bench/harness/README.md)",
         "(allow default)",
         "",
         ";; --- reads: nothing under $HOME, nothing of other runs, no shared scratch space ...",
@@ -474,9 +474,9 @@ def selftest(sb: Sandbox, *, admin_port: int, scenario_dir: Path | None = None) 
         ok = r.returncode not in (0, None) and not r.stdout.strip()
         checks.append({"name": name, "ok": ok, "rc": r.returncode, "stderr": r.stderr.strip()[-300:]})
 
-    must_fail("tmp_unwritable", "echo x > /tmp/french-cfo-bench-selftest-$$ && echo wrote")
+    must_fail("tmp_unwritable", "echo x > /tmp/cfo-bench-selftest-$$ && echo wrote")
     must_fail("tmp_unlistable", "/bin/ls /tmp/")
-    canary = f".french-cfo-bench-selftest-{sb.run_id}"
+    canary = f".cfo-bench-selftest-{sb.run_id}"
     for d in [*SHARED_WRITABLE, *[str(p) for p in user_dirs().values()]]:
         if Path(d).is_dir():
             target = Path(d) / canary
@@ -501,7 +501,7 @@ def selftest(sb: Sandbox, *, admin_port: int, scenario_dir: Path | None = None) 
     for d in (".codex", ".claude", ".ssh", "Developer"):
         if (paths.HOME / d).exists():
             must_fail(f"list_home_{d.strip('.')}", f"/bin/ls {q(str(paths.HOME / d))}")
-    probe = paths.HOME / f".french-cfo-bench-selftest-{sb.run_id}"
+    probe = paths.HOME / f".cfo-bench-selftest-{sb.run_id}"
     must_fail("write_home", f"/usr/bin/touch {q(str(probe))} && echo written")
     if probe.exists():
         probe.unlink()

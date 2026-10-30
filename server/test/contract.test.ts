@@ -97,7 +97,7 @@ function api(
         method,
         ca,
         headers: {
-          'user-agent': 'french-cfo-bench-contract-test',
+          'user-agent': 'cfo-bench-contract-test',
           ...(options.auth === false ? {} : { authorization: `Bearer ${TOKEN}` }),
           ...(payload ? { 'content-type': 'application/json' } : {}),
         },
@@ -125,7 +125,7 @@ interface CliResult {
 }
 
 function scratch(): string {
-  return mkdtempSync(join(tmpdir(), 'french-cfo-bench-contract-'));
+  return mkdtempSync(join(tmpdir(), 'cfo-bench-contract-'));
 }
 
 /** Logged in like the harness sandbox (bench/harness/sandbox.py), profile "bench". */

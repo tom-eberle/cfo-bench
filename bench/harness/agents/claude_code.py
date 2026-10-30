@@ -1,11 +1,11 @@
 """Claude Code adapter (`claude -p --output-format stream-json`), DESIGN.md §7.
 
 Auth (`--claude-auth`, default `token`):
-- `token`: `~/.config/french-cfo-bench/claude-oauth-token` (from `claude setup-token`) →
+- `token`: `~/.config/cfo-bench/claude-oauth-token` (from `claude setup-token`) →
   `CLAUDE_CODE_OAUTH_TOKEN` + a fresh, empty `CLAUDE_CONFIG_DIR=<run>/agent-config` per run (the
   token is redacted from records). No keychain, `/usr/bin/security` not executable.
-- `keychain` (explicit opt-in): `CLAUDE_CONFIG_DIR=~/.config/french-cfo-bench/claude-config`
-  (or `$FRENCH_CFO_BENCH_CLAUDE_CONFIG_DIR`), a benchmark-only config dir whose login lives in the
+- `keychain` (explicit opt-in): `CLAUDE_CONFIG_DIR=~/.config/cfo-bench/claude-config`
+  (or `$CFO_BENCH_CLAUDE_CONFIG_DIR`), a benchmark-only config dir whose login lives in the
   macOS login keychain (the item name is derived from the config dir path, so the path never
   changes). The dir is wiped and restored
   from a minimal template before and after every run; the keychain file is readable, not
@@ -60,13 +60,13 @@ BUILTIN_AGENTS = ("claude", "general-purpose", "statusline-setup", "Explore", "P
 
 TOKEN_FILE = paths.BENCH_CONFIG_DIR / "claude-oauth-token"
 #: Environment variable that replaces the keychain-mode config dir (an absolute path).
-CONFIG_DIR_ENV = "FRENCH_CFO_BENCH_CLAUDE_CONFIG_DIR"
+CONFIG_DIR_ENV = "CFO_BENCH_CLAUDE_CONFIG_DIR"
 
 
 def shared_config_dir(environ: Any = None) -> Path:
-    """The keychain-mode config dir: `$FRENCH_CFO_BENCH_CLAUDE_CONFIG_DIR` if set (e.g. a config
+    """The keychain-mode config dir: `$CFO_BENCH_CLAUDE_CONFIG_DIR` if set (e.g. a config
     dir that is already logged in: the keychain item is named after the path, so the path is used
-    as given, `~` expanded, symlinks kept), else `~/.config/french-cfo-bench/claude-config`."""
+    as given, `~` expanded, symlinks kept), else `~/.config/cfo-bench/claude-config`."""
     value = (os.environ if environ is None else environ).get(CONFIG_DIR_ENV, "").strip()
     if not value:
         return paths.BENCH_CONFIG_DIR / "claude-config"
@@ -107,7 +107,7 @@ def pinned_claude() -> Path:
     b = pinned_claude_dir() / "claude.exe"
     if not b.exists():
         raise RuntimeError(
-            f"Claude Code {CLAUDE_CODE_VERSION} is not pinned yet: run `uv run french-cfo-bench prepare-runtime` "
+            f"Claude Code {CLAUDE_CODE_VERSION} is not pinned yet: run `uv run cfo-bench prepare-runtime` "
             f"while the installed `claude` is {CLAUDE_CODE_VERSION}"
         )
     return b

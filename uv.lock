@@ -44,6 +44,44 @@ wheels = [
 ]
 
 [[package]]
+name = "cfo-bench"
+version = "0.3.0"
+source = { editable = "." }
+dependencies = [
+    { name = "matplotlib" },
+    { name = "pillow" },
+    { name = "pyyaml" },
+    { name = "reportlab" },
+]
+
+[package.optional-dependencies]
+minimal = [
+    { name = "anthropic" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "pypdf" },
+    { name = "pytest" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "anthropic", marker = "extra == 'minimal'", specifier = ">=1.15.0" },
+    { name = "matplotlib", specifier = ">=3.11.2" },
+    { name = "pillow", specifier = "==13.0.0" },
+    { name = "pyyaml", specifier = ">=6.0" },
+    { name = "reportlab", specifier = "==4.4.4" },
+]
+provides-extras = ["minimal"]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "pypdf", specifier = ">=6.21.1" },
+    { name = "pytest", specifier = ">=8.3" },
+]
+
+[[package]]
 name = "charset-normalizer"
 version = "3.5.2"
 source = { registry = "https://pypi.org/simple" }
@@ -336,44 +374,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/8a/e1/3a32904bac7c3460e23a86e9e1529b40d0969a69bd4edefa31e2d2f1bae7/fonttools-4.67.0-cp315-cp315t-win32.whl", hash = "sha256:77e0d4096a2ac60aebe43928b5382766df2d148577db8e8ff79b6a50879a6c06", size = 2479606, upload-time = "2026-10-14T13:20:21.996Z" },
     { url = "https://files.pythonhosted.org/packages/fa/c5/8834cfb95383059addca24f591379d152f137689ff63766736c26b0f9b25/fonttools-4.67.0-cp315-cp315t-win_amd64.whl", hash = "sha256:8c58a8a9ad447bead6f91e5f50b23c0e4988538cdbd9bf2f68952b39f5900a84", size = 2527993, upload-time = "2026-10-14T13:20:23.949Z" },
     { url = "https://files.pythonhosted.org/packages/3d/61/4161946319472aaa9b897bd18ad5108a5b10f5ebaa503d921a001ac4fff9/fonttools-4.67.0-py3-none-any.whl", hash = "sha256:4304f03ed7f4ba000a8dcc941ad854bfa52e2f3b6112b8f099b6f431cf98e701", size = 1213142, upload-time = "2026-10-14T13:20:26.258Z" },
-]
-
-[[package]]
-name = "french-cfo-bench"
-version = "0.2.2"
-source = { editable = "." }
-dependencies = [
-    { name = "matplotlib" },
-    { name = "pillow" },
-    { name = "pyyaml" },
-    { name = "reportlab" },
-]
-
-[package.optional-dependencies]
-minimal = [
-    { name = "anthropic" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "pypdf" },
-    { name = "pytest" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "anthropic", marker = "extra == 'minimal'", specifier = ">=1.15.0" },
-    { name = "matplotlib", specifier = ">=3.11.2" },
-    { name = "pillow", specifier = "==13.0.0" },
-    { name = "pyyaml", specifier = ">=6.0" },
-    { name = "reportlab", specifier = "==4.4.4" },
-]
-provides-extras = ["minimal"]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "pypdf", specifier = ">=6.21.1" },
-    { name = "pytest", specifier = ">=8.3" },
 ]
 
 [[package]]

@@ -55,11 +55,11 @@ def test_compta_wrapper_and_workspace(runtime, server, sandbox_root):  # noqa: F
     r = sb.sh("compta ops list --json")
     assert r.returncode == 0, r.stderr
     assert '"id": "1008"' in r.stdout
-    # the clock shim (loaded by the wrapper with FRENCH_CFO_BENCH_NOW=as_of) shifts the CLI's "today"
+    # the clock shim (loaded by the wrapper with CFO_BENCH_NOW=as_of) shifts the CLI's "today"
     as_of = mini_scenario()["as_of"]
-    assert f"export FRENCH_CFO_BENCH_NOW='{as_of}'" in (sb.bin / "compta").read_text()
+    assert f"export CFO_BENCH_NOW='{as_of}'" in (sb.bin / "compta").read_text()
     shim = runtime.clock_shim.as_uri()
-    r = sb.sh(f"FRENCH_CFO_BENCH_NOW={as_of} node --import {shim} -e 'console.log(new Date().toISOString())'")
+    r = sb.sh(f"CFO_BENCH_NOW={as_of} node --import {shim} -e 'console.log(new Date().toISOString())'")
     assert r.stdout.startswith(as_of), r.stdout + r.stderr
     cfg = (sb.home / ".config" / "compta-cli" / "config.json").read_text()
     assert '"activeProfile": "bench"' in cfg and mini_scenario()["api_token"] in cfg
@@ -134,7 +134,7 @@ def test_deep_tmpdir_resolves_paths(runtime, server, tmp_path_factory):  # noqa:
     import tempfile
 
     top = Path(os.path.realpath(tempfile.mkdtemp(prefix="fcb-deep-", dir="/tmp")))
-    root = top / "b" / "c" / "french-cfo-bench"
+    root = top / "b" / "c" / "cfo-bench"
     root.mkdir(parents=True)
     try:
         sb = make(runtime, server, root, "deep",

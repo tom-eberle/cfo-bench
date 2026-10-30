@@ -1010,7 +1010,7 @@ describe('main.ts over HTTP (admin port API.md §8, 500 envelope)', () => {
         '--cert', join(CERTS, 'server.pem'),
         '--key', join(CERTS, 'server-key.pem'),
       ],
-      { stdio: ['ignore', 'pipe', 'ignore'], env: { ...process.env, FRENCH_CFO_BENCH_ADMIN_TOKEN: ADMIN } },
+      { stdio: ['ignore', 'pipe', 'ignore'], env: { ...process.env, CFO_BENCH_ADMIN_TOKEN: ADMIN } },
     );
     const line = await new Promise<string>((ok, fail) => {
       createInterface({ input: server.stdout! }).once('line', ok);
@@ -1047,7 +1047,7 @@ describe('main.ts over HTTP (admin port API.md §8, 500 envelope)', () => {
     });
   }
 
-  it('prints the ready line with the token from FRENCH_CFO_BENCH_ADMIN_TOKEN', () => {
+  it('prints the ready line with the token from CFO_BENCH_ADMIN_TOKEN', () => {
     assert.equal(ready.ready, true);
     assert.equal(ready.adminToken, ADMIN);
     assert.ok(ready.apiPort > 0 && ready.adminPort > 0);

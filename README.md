@@ -1,12 +1,16 @@
-# french-cfo-bench
+# cfo-bench
 
-![french-cfo-bench: can an AI agent keep a company's books? 87 % of requests done right by the best agent, 0 changes before the owner said yes, 0 of 165 tries obeyed a hidden instruction, $0.02 to $0.66 per request done right](docs/img/hero.svg)
+![cfo-bench: can an AI agent keep a company's books? 87 % of requests done right by the best agent, 0 changes before the owner said yes, 0 of 165 tries obeyed a hidden instruction, $0.02 to $0.66 per request done right](docs/img/hero.svg)
 
 We gave five AI agents the books of a small French company and 36 requests a founder would
 send a bookkeeper: "categorise September", "fix the VAT on our foreign software", "attach these
 invoices", "how much did we spend on ads?", "close the month". For every request that changes
 the books, the agent had to propose a plan first and act only once the owner approved it. A
 program then checked the books, to the cent.
+
+This is the **France suite**: French VAT rules (monthly returns, reverse charge, locked months)
+and requests in French and English. It tests the bookkeeping side of a CFO's job (the books,
+VAT, cash questions), not forecasting or fundraising.
 
 The company is fictional and every number is synthetic: no real company, no real accounting data.
 
@@ -276,25 +280,25 @@ Requirements: macOS (the sandbox is seatbelt), Node ≥ 22.18 with npm,
 
 ```sh
 uv sync
-uv run french-cfo-bench prepare-runtime   # build cli/ (npm ci, npm run build) and install the pinned
+uv run cfo-bench prepare-runtime   # build cli/ (npm ci, npm run build) and install the pinned
                                           # Claude Code and Codex CLIs, all copied out of the repo
-uv run french-cfo-bench selftest          # the sandbox holds: truth, repo and admin port unreachable
-uv run french-cfo-bench run --agents all --repeats 3
+uv run cfo-bench selftest          # the sandbox holds: truth, repo and admin port unreachable
+uv run cfo-bench run --agents all --repeats 3
 ```
 
 The last command runs 540 conversations (36 tasks × 5 agents × 3 repeats), pauses on usage
 limits, resumes with the same `--out`, then grades the batch and writes the tables and charts to
 `<out>/report/`. One task with one agent: `--agents codex --tasks rc-aug --repeats 1`. A free
-pipeline check without any model: `uv run french-cfo-bench run --agents scripted-null,scripted-whoami --repeats 1`.
+pipeline check without any model: `uv run cfo-bench run --agents scripted-null,scripted-whoami --repeats 1`.
 
-**Agent logins.** The benchmark uses its own login copies in `~/.config/french-cfo-bench/`, never
+**Agent logins.** The benchmark uses its own login copies in `~/.config/cfo-bench/`, never
 your everyday agent config:
 - Claude Code (subscription): run `claude setup-token` and save the token in
-  `~/.config/french-cfo-bench/claude-oauth-token` (mode 600). Each run gets a fresh, empty config
+  `~/.config/cfo-bench/claude-oauth-token` (mode 600). Each run gets a fresh, empty config
   dir. A keychain login is also possible (`--claude-auth keychain`, see
   [`bench/harness/README.md`](bench/harness/README.md)).
 - Codex CLI (ChatGPT login): log in once with `codex login`. The first run copies
-  `~/.codex/auth.json` to `~/.config/french-cfo-bench/codex-auth-master.json` (mode 600) and uses
+  `~/.codex/auth.json` to `~/.config/cfo-bench/codex-auth-master.json` (mode 600) and uses
   only that copy from then on.
 
 Other commands: `grade <batch>`, `report <results.jsonl>…`. Tests: `uv run pytest` (about 15

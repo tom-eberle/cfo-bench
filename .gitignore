@@ -18,8 +18,8 @@ turn-*.jsonl
 turn-*.stderr.txt
 turn-*.stdout.txt
 # sandbox roots (when TMPDIR points inside the checkout)
-french-cfo-bench/
-french-cfo-bench-test-*/
+cfo-bench/
+cfo-bench-test-*/
 # python / node
 .venv/
 __pycache__/

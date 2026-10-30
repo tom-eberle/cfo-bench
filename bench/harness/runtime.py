@@ -1,6 +1,6 @@
 """The runtime copy of the compta CLI that agents execute.
 
-`~/.cache/french-cfo-bench/runtime/` holds `dist/`, `package.json`, the production
+`~/.cache/cfo-bench/runtime/` holds `dist/`, `package.json`, the production
 `node_modules/` (commander, unpdf, zod), `skills/`, the local CA certificate and the clock shim,
 plus `runtime.json` (source tree hash, bundle and file hashes). Agents read this copy, never the
 repo or `~/Developer`, which the sandbox denies.
@@ -9,7 +9,7 @@ The CLI is vendored in the repo (`cli/`). The runtime is (re)built from it when 
 (`tree_sha256`: `cli/src`, `cli/skills`, `cli/package.json`, `cli/package-lock.json`,
 `cli/tsconfig.json`, `cli/tsup.config.ts`) or the shim/CA change: `npm ci` when
 `cli/node_modules` is missing or was installed from another lockfile (stamp
-`node_modules/.french-cfo-bench-lock.sha256`), then `npm run build`. The pinned agent CLIs
+`node_modules/.cfo-bench-lock.sha256`), then `npm run build`. The pinned agent CLIs
 (`claude-code/`, `codex/`) are kept across rebuilds.
 """
 
@@ -31,7 +31,7 @@ FORMAT = 3
 TREE_PARTS = ("src", "skills", "package.json", "package-lock.json", "tsconfig.json", "tsup.config.ts")
 LOCKFILE = "package-lock.json"
 #: Written into `node_modules/` after `npm ci`: the sha256 of the lockfile it was installed from.
-DEPS_STAMP = ".french-cfo-bench-lock.sha256"
+DEPS_STAMP = ".cfo-bench-lock.sha256"
 SKILL = Path("skills") / "compta" / "SKILL.md"
 
 

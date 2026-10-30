@@ -17,20 +17,20 @@ SCENARIOS_DIR = REPO_ROOT / "scenarios"
 
 HOME = Path(os.path.realpath(Path.home()))
 #: The runtime copy of the compta CLI build (outside the repo and outside ~/Developer).
-#: `FRENCH_CFO_BENCH_CACHE_DIR` moves it (e.g. one per checkout, so parallel checkouts don't
+#: `CFO_BENCH_CACHE_DIR` moves it (e.g. one per checkout, so parallel checkouts don't
 #: rebuild each other's runtime); it must stay outside the repo.
-CACHE_DIR = Path(os.path.realpath(os.environ.get("FRENCH_CFO_BENCH_CACHE_DIR") or HOME / ".cache" / "french-cfo-bench"))
+CACHE_DIR = Path(os.path.realpath(os.environ.get("CFO_BENCH_CACHE_DIR") or HOME / ".cache" / "cfo-bench"))
 RUNTIME_DIR = CACHE_DIR / "runtime"
 #: Benchmark-only agent logins (Claude config dir, Codex auth master copy).
-BENCH_CONFIG_DIR = HOME / ".config" / "french-cfo-bench"
+BENCH_CONFIG_DIR = HOME / ".config" / "cfo-bench"
 
 #: The compta CLI source the runtime is built from (vendored in the repo; DESIGN.md §5).
-CLI_SRC = Path(os.environ.get("FRENCH_CFO_BENCH_CLI_SRC") or REPO_ROOT / "cli")
+CLI_SRC = Path(os.environ.get("CFO_BENCH_CLI_SRC") or REPO_ROOT / "cli")
 
 
 def sandbox_root() -> Path:
-    """`$TMPDIR/french-cfo-bench`, as a real path (seatbelt matches real paths: /private/var/…)."""
-    return Path(os.path.realpath(tempfile.gettempdir())) / "french-cfo-bench"
+    """`$TMPDIR/cfo-bench`, as a real path (seatbelt matches real paths: /private/var/…)."""
+    return Path(os.path.realpath(tempfile.gettempdir())) / "cfo-bench"
 
 
 def system_temp() -> Path:
@@ -46,4 +46,4 @@ def resolve_binary(name: str) -> Path:
 
 
 def node_binary() -> Path:
-    return resolve_binary(os.environ.get("FRENCH_CFO_BENCH_NODE", "node"))
+    return resolve_binary(os.environ.get("CFO_BENCH_NODE", "node"))

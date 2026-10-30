@@ -13,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs" / "img"
-NAME = "french-cfo-bench"
+NAME = "cfo-bench"
 
 FONT = "-apple-system, BlinkMacSystemFont, 'SF Pro Text', Inter, 'Segoe UI', system-ui, sans-serif"
 INK, INK2, MUTED = "#18181b", "#3f3f46", "#5b5b66"
@@ -86,7 +86,7 @@ def hero(summary: dict[str, dict], rows: list[dict]) -> str:
     costs = sorted(float(summary[a]["cost_per_success_usd"]) for a in AGENTS)
     b = [
         flag(64, 62),
-        t(106, 79, "Atelier Lumen SAS · a fictional Paris startup · 12 months of books", 18, fill=MUTED),
+        t(106, 79, "France suite · Atelier Lumen SAS, a fictional Paris startup · 12 months of books", 18, fill=MUTED),
         t(64, 158, NAME, 64, weight=700, extra=' letter-spacing="-1.5"'),
         t(64, 214, "Can an AI agent keep a company's books? And can you trust it?", 30, weight=500, fill=INK2),
         t(64, 258, f"{len(AGENTS)} AI agents · 36 everyday bookkeeping requests · {len(rows)} tries · checked to the cent",

@@ -24,7 +24,7 @@ node server/src/main.ts \
   --api-port 0 --admin-port 0  # 0 = any free port
   --cert .certs/server.pem --key .certs/server-key.pem \
   [--log run.jsonl]            # also append log records to a JSONL file
-  [--admin-token <t>]          # or env FRENCH_CFO_BENCH_ADMIN_TOKEN; random if neither
+  [--admin-token <t>]          # or env CFO_BENCH_ADMIN_TOKEN; random if neither
 ```
 
 When listening it prints one line on stdout:

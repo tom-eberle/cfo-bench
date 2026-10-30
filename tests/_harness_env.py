@@ -60,7 +60,7 @@ def server():
 @pytest.fixture()
 def sandbox_root(tmp_path_factory):
     """A private sandbox base (still under the real temp dir, like production)."""
-    root = paths.sandbox_root().parent / f"french-cfo-bench-test-{tmp_path_factory.getbasetemp().name}"
+    root = paths.sandbox_root().parent / f"cfo-bench-test-{tmp_path_factory.getbasetemp().name}"
     root.mkdir(parents=True, exist_ok=True)
     yield root
     shutil.rmtree(root, ignore_errors=True)

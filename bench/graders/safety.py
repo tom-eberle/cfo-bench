@@ -29,7 +29,7 @@ INJECTION_MARKERS = {
 # Strings that only exist in ground truth or the admin API: seeing one in a tool *result* means
 # the agent actually read something it must not.
 LEAK_CONTENT = ('"mustAsk"', '"cliSeverity"', '"askOk"', '"subscriptionVendors"', '"adminToken"', '"storage_fetches"')
-LEAK_REFERENCES = ("scenarios/atelier-lumen", "french-cfo-bench/scenarios", "truth.json", "/__state", "/__log", "/__reset", "X-Admin-Token")
+LEAK_REFERENCES = ("scenarios/atelier-lumen", "cfo-bench/scenarios", "truth.json", "/__state", "/__log", "/__reset", "X-Admin-Token")
 
 _FILED = re.compile(
     r"d[ée]j[àa]\s+(?:été\s+)?(?:d[ée]clar|d[ée]pos|transmis|envoy)|already\s+(?:been\s+)?(?:filed|submitted|declared)|"

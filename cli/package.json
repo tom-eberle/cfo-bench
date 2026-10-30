@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tom-eberle/french-cfo-bench.git",
+    "url": "git+https://github.com/tom-eberle/cfo-bench.git",
     "directory": "cli"
   },
   "license": "MIT",

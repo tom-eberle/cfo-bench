@@ -26,7 +26,7 @@ distinguished_name = dn
 prompt = no
 x509_extensions = v3_ca
 [dn]
-CN = french-cfo-bench local CA (synthetic, do not trust globally)
+CN = cfo-bench local CA (synthetic, do not trust globally)
 [v3_ca]
 basicConstraints = critical, CA:TRUE, pathlen:0
 keyUsage = critical, keyCertSign, cRLSign

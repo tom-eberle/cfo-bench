@@ -1,4 +1,4 @@
-"""Harness subcommands for `french-cfo-bench`: run, selftest, prepare-runtime, leak-test."""
+"""Harness subcommands for `cfo-bench`: run, selftest, prepare-runtime, leak-test."""
 
 from __future__ import annotations
 
@@ -112,13 +112,13 @@ def add_subcommands(sub) -> None:
     p.add_argument("--out", help="output dir (default runs/<timestamp>); rerun with the same --out to resume")
     p.add_argument("--scenario", default=None, help="scenario dir (default scenarios/atelier-lumen-s1)")
     p.add_argument("--timeout", type=float, default=None, help="per-turn wall clock, seconds (default 900)")
-    p.add_argument("--keep-sandboxes", action="store_true", help="don't delete $TMPDIR/french-cfo-bench/<run>")
+    p.add_argument("--keep-sandboxes", action="store_true", help="don't delete $TMPDIR/cfo-bench/<run>")
     p.add_argument("--no-grade", action="store_true", help="don't grade the batch and write <out>/report/ at the end")
     p.add_argument("--retry-infra-errors", action="store_true",
                    help="resume: also redo runs that ended as infra_error (old attempts kept, marked replaced)")
     p.add_argument("--allow-paid-api", action="store_true", help="allow the minimal agent (ANTHROPIC_API_KEY)")
     p.add_argument("--claude-auth", choices=("token", "keychain"), default="token",
-                   help="token: ~/.config/french-cfo-bench/claude-oauth-token (default); keychain: the "
+                   help="token: ~/.config/cfo-bench/claude-oauth-token (default); keychain: the "
                         "benchmark config dir's keychain login (opt-in, see bench/harness/README.md)")  # fmt: skip
     p.set_defaults(func=cmd_run)
 
@@ -126,6 +126,6 @@ def add_subcommands(sub) -> None:
     p.add_argument("--scenario", default=str(paths.REPO_ROOT / "server/test/fixtures/mini"))
     p.set_defaults(func=cmd_selftest)
 
-    p = sub.add_parser("prepare-runtime", help="Build the compta CLI (cli/) and copy it to ~/.cache/french-cfo-bench/runtime")
+    p = sub.add_parser("prepare-runtime", help="Build the compta CLI (cli/) and copy it to ~/.cache/cfo-bench/runtime")
     p.add_argument("--force", action="store_true")
     p.set_defaults(func=cmd_prepare_runtime)

@@ -1,6 +1,6 @@
 # compta-cli
 
-Command-line client for **Compta**, the accounting platform of french-cfo-bench, built for humans
+Command-line client for **Compta**, the accounting platform of cfo-bench, built for humans
 and AI agents. The binary is `compta`. It talks to the Compta API (`server/API.md` in this
 repository): read the books, find what needs attention, and change them only through reviewed
 plans.

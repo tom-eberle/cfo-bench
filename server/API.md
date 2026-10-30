@@ -1,6 +1,6 @@
 # Compta API
 
-Compta is a fictional French accounting platform. french-cfo-bench uses it as the system under test:
+Compta is a fictional French accounting platform. cfo-bench uses it as the system under test:
 a small server (`server/`) implements this API over a synthetic company loaded from a scenario
 file, and the `compta` CLI (`cli/`) is its command-line client. This document is the complete
 contract of that server: every endpoint, object, error, the signed file storage, the admin port,
@@ -646,7 +646,7 @@ Scenario files keep the keys of the scenario's `files` map. Uploaded files get d
 
 A second listener for the benchmark harness only: plain HTTP on `127.0.0.1`, never reachable from
 agent sandboxes. Every request needs `X-Admin-Token: <token>` (from `--admin-token`, the
-`FRENCH_CFO_BENCH_ADMIN_TOKEN` environment variable, or 24 random bytes printed at start-up).
+`CFO_BENCH_ADMIN_TOKEN` environment variable, or 24 random bytes printed at start-up).
 Errors use the envelope of §3 with codes `UNAUTHENTICATED` (401), `INVALID_PARAMETER` (400),
 `NOT_FOUND` (404).
 

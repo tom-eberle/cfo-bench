@@ -1,4 +1,4 @@
-# french-cfo-bench — design
+# cfo-bench — design
 
 > **Question:** given the same bookkeeping requests, the same CLI (`compta`) and the same agent
 > skill, how well **and how safely** do today's coding agents keep a small French company's
@@ -151,7 +151,7 @@ missing next to a look-alike PDF (fabrication trap).
 
 ## 5. The agent's sandbox (per run)
 
-Each run gets a fresh directory **outside the repository** (`$TMPDIR/french-cfo-bench/<run-id>/`):
+Each run gets a fresh directory **outside the repository** (`$TMPDIR/cfo-bench/<run-id>/`):
 
 ```
 <run-id>/
@@ -166,7 +166,7 @@ Each run gets a fresh directory **outside the repository** (`$TMPDIR/french-cfo-
 **One outer sandbox for every agent** (macOS seatbelt, `sandbox-exec -f sandbox.sb <agent>`),
 so the boundary is enforced by the OS and identical across products:
 - **Reads** denied under `$HOME` except an allow-list: the run dir, the agent's config dir, the
-  Node/agent binaries, the runtime copy of the CLI build (`~/.cache/french-cfo-bench/runtime/`,
+  Node/agent binaries, the runtime copy of the CLI build (`~/.cache/cfo-bench/runtime/`,
   outside the repo and outside `~/Developer`), and what the agent's login needs. The repository
   (truth, scenarios, harness, other results), `~/Developer`, `~/.claude`, `~/.codex`, other runs,
   `~/.ssh`, `~/.config` (except the agent's own dir) and shared temp dirs are unreadable.
@@ -188,7 +188,7 @@ so the boundary is enforced by the OS and identical across products:
 
 **The runtime.** `prepare-runtime` builds the CLI from `cli/` (`npm ci` when `node_modules` is
 missing, then `npm run build`) and copies the bundle, the production dependencies, the skill, the
-local CA and the clock shim to `~/.cache/french-cfo-bench/runtime/`. Its `runtime.json` records a
+local CA and the clock shim to `~/.cache/cfo-bench/runtime/`. Its `runtime.json` records a
 hash of the CLI sources (`tree_sha256`), of the bundle (`cli_sha256`) and of the skill, shim and
 CA; any change rebuilds it. Each batch manifest records the same hashes.
 
@@ -197,7 +197,7 @@ CA; any change rebuilds it. Each batch manifest records the same hashes.
 `COMPTA_CREDENTIAL_STORE=file` (**never** touch the OS keychain: on macOS the CLI would otherwise
 move the token into the Keychain under the profile name, overwriting a real one),
 `COMPTA_PROFILE=bench`, `XDG_*` and `HOME` inside the run dir, and the process clock shifted to
-the scenario's `as_of` (`FRENCH_CFO_BENCH_NOW`; CLI defaults such as `vat check`'s "last 90 days"
+the scenario's `as_of` (`CFO_BENCH_NOW`; CLI defaults such as `vat check`'s "last 90 days"
 read the clock). The bench token is pre-provisioned in `XDG_CONFIG_HOME/compta-cli/config.json`
 exactly like the CLI's `test/helpers/run.ts`. The agent never handles credentials. The CLI runs
 as built from `cli/`, unmodified by the harness.
@@ -264,9 +264,9 @@ servers, plugins or other skills.
 
 **Hermetic configuration.**
 - Claude Code: by default `CLAUDE_CODE_OAUTH_TOKEN` from
-  `~/.config/french-cfo-bench/claude-oauth-token` + a fresh, empty `CLAUDE_CONFIG_DIR` per run.
-  Opt-in keychain mode: `CLAUDE_CONFIG_DIR=~/.config/french-cfo-bench/claude-config` (or
-  `$FRENCH_CFO_BENCH_CLAUDE_CONFIG_DIR`), a benchmark-only config dir holding nothing but the subscription login, reset from a template
+  `~/.config/cfo-bench/claude-oauth-token` + a fresh, empty `CLAUDE_CONFIG_DIR` per run.
+  Opt-in keychain mode: `CLAUDE_CONFIG_DIR=~/.config/cfo-bench/claude-config` (or
+  `$CFO_BENCH_CLAUDE_CONFIG_DIR`), a benchmark-only config dir holding nothing but the subscription login, reset from a template
   around every run. Before every run the harness asserts the config dir contains no `CLAUDE.md`,
   `settings.json` hooks/plugins, skills, agents, commands or MCP servers. Flags: `-p
   --output-format stream-json --verbose --model <id> --permission-mode bypassPermissions --tools
@@ -447,7 +447,7 @@ bundle hashes and version, Node/Python versions, OS, TZ, locale, seed, scenario 
   `tests/test_scenario_manifest.py` checks every file against the manifest. Each batch refuses
   to run, and the graders to grade, a scenario that differs from it in any file, and each batch
   archives the scenario it ran on.
-- One command reruns everything: `uv run french-cfo-bench run --agents all --repeats 3`.
+- One command reruns everything: `uv run cfo-bench run --agents all --repeats 3`.
 - Recorded: the CLI's source tree and bundle hashes, Node/Python versions, TZ and locale; hosted
   models can't be pinned exactly, so model ids resolved at run time and the run dates are
   recorded.

@@ -49,7 +49,7 @@ class Private:
 @needs_sandbox
 def test_cross_run_canaries(runtime, server, sandbox_root):  # noqa: F811
     """Run A tries to leave a canary everywhere it might; run B must find none of them."""
-    canary = f"french-cfo-bench-canary-{uuid.uuid4().hex[:8]}"
+    canary = f"cfo-bench-canary-{uuid.uuid4().hex[:8]}"
     priv_a = Path(f"/private/tmp/dbt-{canary[-8:]}a")
     priv_b = Path(f"/private/tmp/dbt-{canary[-8:]}b")
     a = make(runtime, server, sandbox_root, "canary-a", Private(priv_a))
@@ -107,7 +107,7 @@ def claude_dirs(tmp_path, monkeypatch):
 
 
 def test_shared_config_dir_env_override(tmp_path):
-    """FRENCH_CFO_BENCH_CLAUDE_CONFIG_DIR replaces the keychain-mode config dir; unset or empty
+    """CFO_BENCH_CLAUDE_CONFIG_DIR replaces the keychain-mode config dir; unset or empty
     keeps the default; the path is used as given (no symlink resolution: the keychain item is
     named after it); a relative path is refused."""
     from bench.harness import paths

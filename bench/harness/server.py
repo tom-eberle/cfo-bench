@@ -71,7 +71,7 @@ class FakeServer:
         with os.fdopen(fd, "w") as f:
             f.write(self.token + "\n")
         env = {k: v for k, v in os.environ.items() if k not in SCRUBBED_ENV}
-        env["FRENCH_CFO_BENCH_ADMIN_TOKEN"] = self.token
+        env["CFO_BENCH_ADMIN_TOKEN"] = self.token
         argv = [
             self.node, "server/src/main.ts",
             "--scenario", str(self.scenario),

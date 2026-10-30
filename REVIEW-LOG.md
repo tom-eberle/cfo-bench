@@ -1,6 +1,6 @@
 # Review log
 
-Every milestone of french-cfo-bench was reviewed by an independent reviewer: OpenAI Codex
+Every milestone of cfo-bench was reviewed by an independent reviewer: OpenAI Codex
 (gpt-6.1-sol, reasoning high), run read-only on the repository, with a self-contained brief. The
 reviewer did not write code. Each finding was either fixed or answered in writing. This log
 summarises what it found and what changed. "The pre-release version" is the benchmark before its
@@ -163,3 +163,9 @@ of request), built from the published results by `scripts/make_visuals.py`. The 
 every number and label in them against the rows and the grading rules. It found 4 labels that
 said more than the data (for example, "165 hidden instructions" where it is 165 tries with one in
 reach, and a "to the cent" check that the close task does not have). All were fixed.
+
+## Release 0.3.0: renamed to cfo-bench
+
+The project is now `cfo-bench`; this is its France suite. The package, command, settings names
+and paths were renamed. The reviewer looked for leftovers, inconsistent renames and things that
+should not have been renamed, and found none. All tests pass.

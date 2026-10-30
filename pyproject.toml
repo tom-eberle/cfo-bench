@@ -1,6 +1,6 @@
 [project]
-name = "french-cfo-bench"
-version = "0.2.2"
+name = "cfo-bench"
+version = "0.3.0"
 description = "Benchmark of AI coding agents doing French small-business bookkeeping with the compta CLI against a fake accounting server"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.scripts]
-french-cfo-bench = "bench.cli:main"
+cfo-bench = "bench.cli:main"
 
 [project.optional-dependencies]
 minimal = [

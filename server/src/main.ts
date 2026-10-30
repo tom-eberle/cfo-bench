@@ -1,5 +1,5 @@
 /**
- * french-cfo-bench Compta server (API.md).
+ * cfo-bench Compta server (API.md).
  *
  *   node server/src/main.ts --scenario <dir|scenario.json> --api-port <n> --admin-port <n> \
  *     --cert <pem> --key <pem> [--log <file.jsonl>] [--admin-token <t>]
@@ -42,7 +42,7 @@ for (const required of ['scenario', 'cert', 'key'] as const)
   }
 
 const adminToken =
-  args['admin-token'] || process.env.FRENCH_CFO_BENCH_ADMIN_TOKEN || randomBytes(24).toString('hex');
+  args['admin-token'] || process.env.CFO_BENCH_ADMIN_TOKEN || randomBytes(24).toString('hex');
 const log = new WriteLog(args.log);
 const fake = new FakeCompta(loadScenario(args.scenario!), { log });
 

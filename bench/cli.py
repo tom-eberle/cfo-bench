@@ -1,4 +1,4 @@
-"""`french-cfo-bench` command line. Subcommands register themselves in COMMANDS."""
+"""`cfo-bench` command line. Subcommands register themselves in COMMANDS."""
 
 from __future__ import annotations
 
@@ -66,7 +66,7 @@ COMMANDS = [add_harness, add_grade, add_report]
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(prog="french-cfo-bench", description="french-cfo-bench: AI agents doing French small-business bookkeeping with the compta CLI")
+    parser = argparse.ArgumentParser(prog="cfo-bench", description="cfo-bench: AI agents doing French small-business bookkeeping with the compta CLI")
     sub = parser.add_subparsers(dest="command", required=True)
     for add in COMMANDS:
         add(sub)

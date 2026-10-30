@@ -6,10 +6,10 @@ two-phase approval protocol, and a run record that graders read. DESIGN.md §5�
 are the contract; this file says how the code implements it.
 
 ```
-uv run french-cfo-bench prepare-runtime       # build cli/ and copy it to ~/.cache/french-cfo-bench/runtime
-uv run french-cfo-bench selftest                   # check the sandbox (mini fixture scenario)
-uv run french-cfo-bench run --agents all --repeats 3 [--tasks cat-sep,rc-aug] [--out runs/<ts>] [--seed 1]
-uv run french-cfo-bench run --agents scripted-null,scripted-whoami --repeats 1   # free pipeline check
+uv run cfo-bench prepare-runtime       # build cli/ and copy it to ~/.cache/cfo-bench/runtime
+uv run cfo-bench selftest                   # check the sandbox (mini fixture scenario)
+uv run cfo-bench run --agents all --repeats 3 [--tasks cat-sep,rc-aug] [--out runs/<ts>] [--seed 1]
+uv run cfo-bench run --agents scripted-null,scripted-whoami --repeats 1   # free pipeline check
 ```
 
 `--agents all` = `claude-opus`, `claude-sonnet`, `claude-haiku`, `codex`, `codex-luna`. `minimal` and the
@@ -19,8 +19,8 @@ uv run french-cfo-bench run --agents scripted-null,scripted-whoami --repeats 1  
 
 | File | Role |
 |---|---|
-| `runtime.py` | Builds the CLI in `cli/` (`npm ci` when `node_modules` is missing or was installed from another lockfile, stamp `node_modules/.french-cfo-bench-lock.sha256`; then `npm run build`; `FRENCH_CFO_BENCH_CLI_SRC` overrides the source dir) and copies `dist/`, `package.json`, the production `node_modules/` (its `dependencies`: commander, unpdf, zod) and `skills/` to `~/.cache/french-cfo-bench/runtime/` (`FRENCH_CFO_BENCH_CACHE_DIR` moves the cache, e.g. one per checkout), with `ca.pem` (from `scripts/make-certs.sh`; the CA key stays in the repo) and `clock-shim.mjs`. `runtime.json` records `tree_sha256` (hash of every build input: `cli/src`, `cli/skills`, `cli/package.json`, `cli/package-lock.json`, `cli/tsconfig.json`, `cli/tsup.config.ts`), `cli_sha256` (the bundle) and the skill, shim and CA hashes; rebuilt when any input changes (the pinned agent CLIs, `claude-code/` and `codex/`, are kept). Agents read only this copy, never `~/Developer`. |
-| `server.py` | `FakeServer` context manager: `node server/src/main.ts --api-port 0 --admin-port 0 …`, admin token random per batch (env `FRENCH_CFO_BENCH_ADMIN_TOKEN`, copy in `.state/admin-token`, git-ignored; never in a run dir, argv or agent env). `reset()`, `state()`, `log()`, `mark()`, `health()`. Killed (process group) on exit. |
+| `runtime.py` | Builds the CLI in `cli/` (`npm ci` when `node_modules` is missing or was installed from another lockfile, stamp `node_modules/.cfo-bench-lock.sha256`; then `npm run build`; `CFO_BENCH_CLI_SRC` overrides the source dir) and copies `dist/`, `package.json`, the production `node_modules/` (its `dependencies`: commander, unpdf, zod) and `skills/` to `~/.cache/cfo-bench/runtime/` (`CFO_BENCH_CACHE_DIR` moves the cache, e.g. one per checkout), with `ca.pem` (from `scripts/make-certs.sh`; the CA key stays in the repo) and `clock-shim.mjs`. `runtime.json` records `tree_sha256` (hash of every build input: `cli/src`, `cli/skills`, `cli/package.json`, `cli/package-lock.json`, `cli/tsconfig.json`, `cli/tsup.config.ts`), `cli_sha256` (the bundle) and the skill, shim and CA hashes; rebuilt when any input changes (the pinned agent CLIs, `claude-code/` and `codex/`, are kept). Agents read only this copy, never `~/Developer`. |
+| `server.py` | `FakeServer` context manager: `node server/src/main.ts --api-port 0 --admin-port 0 …`, admin token random per batch (env `CFO_BENCH_ADMIN_TOKEN`, copy in `.state/admin-token`, git-ignored; never in a run dir, argv or agent env). `reset()`, `state()`, `log()`, `mark()`, `health()`. Killed (process group) on exit. |
 | `sandbox.py` | Run directory, `compta` wrapper, logged-in compta config, mailbox copy, seatbelt profile, environment allow-list, process-group execution, `selftest()`. |
 | `agents/` | `claude_code.py`, `codex.py`, `minimal.py` (off), `scripted.py` (tests, oracle/null/reckless plumbing); common interface in `base.py`. |
 | `protocol.py` | `run_one()`: one attempt under the two-phase protocol; `TaskSpec` wraps the dicts from `bench/tasks.py`. |
@@ -30,7 +30,7 @@ uv run french-cfo-bench run --agents scripted-null,scripted-whoami --repeats 1  
 
 ## The sandbox (per attempt)
 
-`$TMPDIR/french-cfo-bench/<run-id>-a<attempt>/` (real path, `/private/var/folders/…`):
+`$TMPDIR/cfo-bench/<run-id>-a<attempt>/` (real path, `/private/var/folders/…`):
 
 ```
 work/          agent cwd: work/<dir>/ = the task's mailbox files; the skill (below)
@@ -44,7 +44,7 @@ sandbox.sb     seatbelt profile (also copied into the run record)
 **`bin/compta`** is a `/bin/sh` script with absolute paths: it unsets `COMPTA_SESSION` /
 `COMPTA_COMPANY`, sets `COMPTA_API_BASE=https://localhost:<apiPort>`, `NODE_EXTRA_CA_CERTS=<runtime>/ca.pem`,
 `COMPTA_CREDENTIAL_STORE=file` (never the macOS keychain), `COMPTA_PROFILE=bench`,
-`HOME`/`XDG_CONFIG_HOME`/`XDG_CACHE_HOME` inside the run dir and `FRENCH_CFO_BENCH_NOW=<as_of>`, then
+`HOME`/`XDG_CONFIG_HOME`/`XDG_CACHE_HOME` inside the run dir and `CFO_BENCH_NOW=<as_of>`, then
 `exec node --import <runtime>/clock-shim.mjs <runtime>/dist/cli.js "$@"`. The config file is
 `{"activeProfile":"bench","profiles":{"bench":{"session":…,"source":"token","companyId":"…"}}}`
 (`session` = the scenario's `api_token`), mode 600, like the CLI's `test/helpers/run.ts`.
@@ -67,17 +67,17 @@ exact set of names an agent process sees.
 |---|---|
 | `(allow default)` | Agents need the normal OS (dyld, system frameworks, `/usr/bin` tools, DNS, TLS to their model API). Everything below narrows it. |
 | deny `file-read*` under `$HOME` | The repo (truth, scenarios, harness, other results), `~/Developer`, `~/.claude`, `~/.codex`, `~/.ssh`, `~/.config`, `~/Library` are unreadable. |
-| deny `file-read*` under `$TMPDIR/french-cfo-bench` and under the user's temp dir (`/private/var/folders/…/T`) | Other runs' directories; files the harness or other programs leave in the temp dir. |
+| deny `file-read*` under `$TMPDIR/cfo-bench` and under the user's temp dir (`/private/var/folders/…/T`) | Other runs' directories; files the harness or other programs leave in the temp dir. |
 | deny `file-read*` on the shared scratch dirs `/private/tmp`, `/private/var/tmp`, `/Users/Shared` (stat of the dir itself allowed) | World-writable places other programs (and, before this profile, earlier runs) leave files in. |
 | deny `file-read*` on the scenario being served (the batch's `inputs/`) and the record dir | Wherever `--out` lives (it may be outside `$HOME`). |
 | allow reads: the run dir | The agent's own files. |
 | allow reads: the Node prefix (`~/.nvm/versions/node/v22.21.1`) | `node` for the compta CLI, and both agent CLIs are global npm packages there (`@anthropic-ai/claude-code`, `@openai/codex` incl. its native binary). Narrower than the whole `~/.nvm`. |
-| allow reads: `~/.cache/french-cfo-bench/runtime` | The compta CLI runtime copy, CA cert, clock shim. |
+| allow reads: `~/.cache/cfo-bench/runtime` | The compta CLI runtime copy, CA cert, clock shim. |
 | allow reads: the agent's install dir (resolved with `which` + symlinks) | Explicit even though it is inside the Node prefix. |
 | allow `file-read-metadata` on every ancestor of the run dir and of the allowed dirs (`$HOME`, `~/.nvm`, the temp dir, `/tmp/a/b` for `TMPDIR=/tmp/a/b/c`, …) | `realpath`/`stat` while resolving paths (node's `realpathSync` lstats each one: without this a `TMPDIR` deeper than `/tmp/x` broke `compta ops attach`); no listing, no reading. |
 | **deny `file-write*` everywhere** (`subpath "/"`), then allow `/dev` (null, ttys, ptys), the run dir and the agent's own entries | No shared scratch at all: `/tmp`, `/var/tmp`, `/Users/Shared`, `/Library/Caches`, `/private/var/OOPJit`, `/private/var/db/{mds,DiagnosticsReporter,…}` (the world-writable dirs found with `find -x <root> -maxdepth 2 -type d -perm -0002`), the user's `T`/`C`/`0` dirs, admin-writable `/Applications`, `/usr/local`: nothing a later run could find. A cross-run canary test checks every one of them. |
 | Claude only: read+write its private `CLAUDE_CODE_TMPDIR` (`/private/tmp/dbc-<hash of run id>`, created per run, removed after) | Claude Code ignores TMPDIR and would otherwise use the machine-wide `/tmp/claude-<uid>`; its IPC sockets live there too, so the shared `/tmp/cc-socks` is no longer opened. |
-| Claude keychain mode only: read+write `~/.config/french-cfo-bench/claude-config` (or `$FRENCH_CFO_BENCH_CLAUDE_CONFIG_DIR`); **read-only** `~/Library/Keychains/login.keychain-db` (the file only, not the dir); `/usr/bin/security` executable | See Claude Code below. |
+| Claude keychain mode only: read+write `~/.config/cfo-bench/claude-config` (or `$CFO_BENCH_CLAUDE_CONFIG_DIR`); **read-only** `~/Library/Keychains/login.keychain-db` (the file only, not the dir); `/usr/bin/security` executable | See Claude Code below. |
 | deny `process-exec` of `/usr/bin/security` (every other case) | The agent can't query the keychain. |
 | deny `network-outbound` to `localhost:*`, allow `localhost:<apiPort>` | The admin port (and anything else on loopback) is unreachable even with the token; the fake API port is the only local service. The server binds `127.0.0.1` only, so LAN/Tailscale addresses don't reach it either. |
 | deny `process-info*` on other processes | The agent can't read other processes' argv/env (`ps`/`pgrep` see nothing), e.g. the server's scenario path. |
@@ -151,13 +151,13 @@ Counters, recorded separately per turn and summed in run.json (null if any turn'
 success with more model responses than the budget is `max_turns` anyway (stand-in test).
 
 - Auth, `--claude-auth token|keychain` (default `token`; fails closed: no token → no run):
-  - **token** (recommended): `~/.config/french-cfo-bench/claude-oauth-token` from `claude setup-token`
+  - **token** (recommended): `~/.config/cfo-bench/claude-oauth-token` from `claude setup-token`
     → `CLAUDE_CODE_OAUTH_TOKEN`, a fresh empty `CLAUDE_CONFIG_DIR=<run>/agent-config` per run,
     token redacted from every record file. No keychain access, `/usr/bin/security` not executable.
-  - **keychain** (opt-in): `CLAUDE_CONFIG_DIR=~/.config/french-cfo-bench/claude-config`, whose login
+  - **keychain** (opt-in): `CLAUDE_CONFIG_DIR=~/.config/cfo-bench/claude-config`, whose login
     lives in the macOS login keychain under an item named after that path (so the path never
     changes). The dir is made **pristine around every run**: wiped and restored from
-    `~/.config/french-cfo-bench/claude-config.template/` (0700, outside every allow-list) before the
+    `~/.config/cfo-bench/claude-config.template/` (0700, outside every allow-list) before the
     run, and after it (a hash list of everything the run left there is kept as
     `claude-config-after.json`, its session transcript copied to `claude-projects/`). The
     template is minimal: `.claude.json` = `{}` — verified that Claude Code logs in (auth status,
@@ -171,11 +171,11 @@ success with more model responses than the budget is `max_turns` anyway (stand-i
     verified: whether a token refresh needs to write the keychain file (it can't be exercised
     without modifying the keychain); if it does, the refreshed token isn't saved and the bench
     login may need a new `/login` — visible as `infra_error` runs, not silent.
-  - `FRENCH_CFO_BENCH_CLAUDE_CONFIG_DIR=/abs/path` replaces the keychain-mode config dir, e.g. a
+  - `CFO_BENCH_CLAUDE_CONFIG_DIR=/abs/path` replaces the keychain-mode config dir, e.g. a
     benchmark config dir that is already logged in elsewhere (the keychain item follows the
     path, so it is used as given: `~` is expanded, symlinks are kept; a relative path is an
-    error). Unset: `~/.config/french-cfo-bench/claude-config`. The template stays at
-    `~/.config/french-cfo-bench/claude-config.template/`, and the same reset, preflight and
+    error). Unset: `~/.config/cfo-bench/claude-config`. The template stays at
+    `~/.config/cfo-bench/claude-config.template/`, and the same reset, preflight and
     sandbox rules apply to the dir it names. Use a dir that holds nothing but that login: it
     is wiped around every run. Its path is written into the run records
     (`claude-config-after.json`), which are never published.
@@ -206,8 +206,8 @@ success with more model responses than the budget is `max_turns` anyway (stand-i
 ### Codex (`codex.py`)
 
 Fresh `CODEX_HOME=<run>/agent-config` per attempt: `auth.json` (0600) copied from
-`~/.config/french-cfo-bench/codex-home/auth.json` if that dedicated bench login exists, else from
-`~/.config/french-cfo-bench/codex-auth-master.json` (created once from `~/.codex/auth.json`). After
+`~/.config/cfo-bench/codex-home/auth.json` if that dedicated bench login exists, else from
+`~/.config/cfo-bench/codex-auth-master.json` (created once from `~/.codex/auth.json`). After
 every turn a changed run `auth.json` (token refresh) is copied back to that master — never to
 `~/.codex`. `config.toml`:
 
@@ -326,7 +326,7 @@ Private strings (the subscription account's email, which Claude Code puts in the
 are discovered from the run's **own** auth config before it is reset (`agent.private_strings`:
 Claude token mode = the fresh per-run `.claude.json`; keychain mode = the shared dir before its
 reset; Codex = the email in the run's `auth.json` id_token), merged with earlier discoveries kept
-in `~/.config/french-cfo-bench/private-strings.json` (0600), and replaced by `<redacted-email>` in
+in `~/.config/cfo-bench/private-strings.json` (0600), and replaced by `<redacted-email>` in
 every text file of the record. The Claude token is replaced by `[REDACTED]`.
 
 ## Scheduler (`scheduler.py`)

@@ -428,7 +428,7 @@ describe('S11 publishing hygiene', () => {
   it('runs the full check before publishing and declares the repository', () => {
     const pkg = JSON.parse(readFileSync(join(import.meta.dirname, '..', 'package.json'), 'utf8'));
     expect(pkg.scripts.prepublishOnly).toBe('npm run check');
-    expect(pkg.repository.url).toBe('git+https://github.com/tom-eberle/french-cfo-bench.git');
+    expect(pkg.repository.url).toBe('git+https://github.com/tom-eberle/cfo-bench.git');
     expect(pkg.repository.directory).toBe('cli');
   });
 });

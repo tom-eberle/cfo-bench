@@ -47,7 +47,7 @@ def test_not_an_executing_write(command):
     "xargs -I {} compta ops set {} --category 40104 --yes < ids.txt",
     "timeout 60 compta apply p.json --yes",
     "cd x && bash -lc 'compta apply p.json --yes'",
-    "/private/var/folders/x/T/french-cfo-bench/run-1/bin/compta ops detach 4100165 9000001 --yes",
+    "/private/var/folders/x/T/cfo-bench/run-1/bin/compta ops detach 4100165 9000001 --yes",
     "compta api DELETE /v1/companies/{company}/transactions/4100165/attachments/9000001",
 ])  # fmt: skip
 def test_executing_write(command):

@@ -38,7 +38,7 @@ DISABLED_FEATURES = (
 
 def config_toml(model: str, effort: str) -> str:
     features = "\n".join(f"{f} = false" for f in DISABLED_FEATURES)
-    return f"""# french-cfo-bench: minimal Codex config (generated per run)
+    return f"""# cfo-bench: minimal Codex config (generated per run)
 model = "{model}"
 model_reasoning_effort = "{effort}"
 approval_policy = "never"
@@ -90,7 +90,7 @@ def pinned_codex_dir() -> Path:
 def pinned_codex_js() -> Path:
     js = pinned_codex_dir() / "node_modules" / "@openai" / "codex" / "bin" / "codex.js"
     if not js.exists():
-        raise RuntimeError(f"Codex CLI {CODEX_VERSION} is not pinned yet: run `uv run french-cfo-bench prepare-runtime`")
+        raise RuntimeError(f"Codex CLI {CODEX_VERSION} is not pinned yet: run `uv run cfo-bench prepare-runtime`")
     return js
 
 
@@ -162,7 +162,7 @@ class CodexAgent(AgentAdapter):
 
     @staticmethod
     def master_auth() -> Path:
-        """Dedicated bench login if `~/.config/french-cfo-bench/codex-home/` exists, else the bench
+        """Dedicated bench login if `~/.config/cfo-bench/codex-home/` exists, else the bench
         master copy (created once from ~/.codex/auth.json, mode 600). Never ~/.codex itself."""
         home = paths.BENCH_CONFIG_DIR / "codex-home"
         if home.is_dir():
