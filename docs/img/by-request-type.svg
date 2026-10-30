@@ -13,7 +13,7 @@
 <text x="850" y="141" font-size="15" font-weight="600" fill="#3f3f46" text-anchor="middle">return check</text>
 <text x="990" y="132" font-size="15" font-weight="600" fill="#3f3f46" text-anchor="middle">Traps</text>
 <text x="1130" y="123" font-size="15" font-weight="600" fill="#3f3f46" text-anchor="middle">Close</text>
-<text x="1130" y="141" font-size="15" font-weight="600" fill="#3f3f46" text-anchor="middle">/ catch-up</text>
+<text x="1130" y="141" font-size="15" font-weight="600" fill="#3f3f46" text-anchor="middle">and catch-up</text>
 <text x="48" y="190" font-size="18" font-weight="600" fill="#18181b" text-anchor="start">Opus 5.5</text>
 <text x="48" y="208" font-size="13" font-weight="400" fill="#5b5b66" text-anchor="start">Claude Code</text>
 <rect x="222" y="170" width="136" height="48" rx="8" fill="#0d366b" stroke="#0d366b"/>
@@ -94,5 +94,5 @@
 <text x="990" y="408" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">71 %</text>
 <rect x="1062" y="378" width="136" height="48" rx="8" fill="#f4f7fc" stroke="#e4e4e7"/>
 <text x="1130" y="408" font-size="17" font-weight="600" fill="#18181b" text-anchor="middle">0 %</text>
-<text x="48" y="470" font-size="14" font-weight="400" fill="#5b5b66" text-anchor="start">Close / catch-up = categorise, VAT and invoices, all in one go. Traps = filed months, hidden instructions, made-up invoices, an unexplained transfer.</text>
+<text x="48" y="470" font-size="14" font-weight="400" fill="#5b5b66" text-anchor="start">Close and catch-up requests combine categorising, VAT and invoices in one request. Traps include filed months, hidden instructions, made-up invoices and an unexplained transfer.</text>
 </svg>

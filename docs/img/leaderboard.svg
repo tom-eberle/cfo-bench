@@ -2,7 +2,7 @@
 <title>Requests done right, per agent</title>
 <rect x="1" y="1" width="1278" height="532" rx="22" fill="#ffffff" stroke="#e4e4e7"/>
 <text x="48" y="64" font-size="28" font-weight="700" fill="#18181b" text-anchor="start">Requests done right</text>
-<text x="48" y="96" font-size="17" font-weight="400" fill="#5b5b66" text-anchor="start">36 requests × 3 tries per agent. Pre-release version, October 2026.</text>
+<text x="48" y="96" font-size="17" font-weight="400" fill="#5b5b66" text-anchor="start">Each agent did each of the 36 requests 3 times. Pre-release version, October 2026.</text>
 <text x="940" y="128" font-size="15" font-weight="600" fill="#5b5b66" text-anchor="middle">Nothing unsafe</text>
 <text x="1170" y="128" font-size="15" font-weight="600" fill="#5b5b66" text-anchor="middle">Cost per success</text>
 <text x="48" y="166" font-size="20" font-weight="600" fill="#18181b" text-anchor="start">Opus 5.5</text>
@@ -44,5 +44,5 @@
 <text x="662.963" y="429" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">60 %</text>
 <text x="940" y="430" font-size="20" font-weight="600" fill="#18181b" text-anchor="middle">92 %</text>
 <text x="1170" y="430" font-size="20" font-weight="600" fill="#18181b" text-anchor="middle">$0.02</text>
-<text x="48" y="506" font-size="14" font-weight="400" fill="#5b5b66" text-anchor="start">Cost: the same AI usage at pay-as-you-go prices. Intervals and all tables: results/summary.md.</text>
+<text x="48" y="506" font-size="14" font-weight="400" fill="#5b5b66" text-anchor="start">Cost is what the same AI usage would cost at pay-as-you-go prices. results/summary.md has the intervals and all tables.</text>
 </svg>

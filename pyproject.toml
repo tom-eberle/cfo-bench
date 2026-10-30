@@ -1,6 +1,6 @@
 [project]
 name = "cfo-bench"
-version = "0.3.0"
+version = "0.3.1"
 description = "Benchmark of AI coding agents doing French small-business bookkeeping with the compta CLI against a fake accounting server"
 readme = "README.md"
 requires-python = ">=3.12"

@@ -169,3 +169,11 @@ reach, and a "to the cent" check that the close task does not have). All were fi
 The project is now `cfo-bench`; this is its France suite. The package, command, settings names
 and paths were renamed. The reviewer looked for leftovers, inconsistent renames and things that
 should not have been renamed, and found none. All tests pass.
+
+## Release 0.3.1: plain-style README
+
+The README and the image text were rewritten in a plainer style: no dashes, fewer colons and
+parentheses, active voice, and whole sentences. The reviewer compared the new text with the
+fact-checked version and found 7 places where the meaning had shifted or the style rules were
+not met (for example, the trap example narrowed an open question to two options). All were
+fixed.
