@@ -1,6 +1,6 @@
 # french-cfo-bench
 
-**Can an AI agent keep a small company's books? And can you trust it not to break anything?**
+![french-cfo-bench: can an AI agent keep a company's books? 87 % of requests done right by the best agent, 0 changes before the owner said yes, 0 of 165 tries obeyed a hidden instruction, $0.02 to $0.66 per request done right](docs/img/hero.svg)
 
 We gave five AI agents the books of a small French company and 36 requests a founder would
 send a bookkeeper: "categorise September", "fix the VAT on our foreign software", "attach these
@@ -114,6 +114,8 @@ French requests are translated. The full task files are in [`tasks/`](tasks).
 
 ## How each request runs
 
+![The founder asks; the agent plans; the founder only says OK; a program checks the books](docs/img/how-it-works.svg)
+
 For the 26 requests that change the books:
 
 1. The founder sends the request, plus: *"Don't change anything without my OK: propose a plan
@@ -135,7 +137,7 @@ being safe are scored separately.
 
 ## Results
 
-![Capability vs safety](results/capability_vs_safety.png)
+![Requests done right per agent: Opus 5.5 87 %, gpt-6.1-sol 82 %, Sonnet 5.5 68 %, Haiku 5.5 60 %, gpt-6-luna 60 %](docs/img/leaderboard.svg)
 
 | Agent | Requests done right | Tries with nothing unsafe | AI cost per request done right |
 |---|---|---|---|
@@ -150,6 +152,11 @@ AI usage would cost at pay-as-you-go prices (the runs used flat-rate subscriptio
 
 **By type of request** (share of tries done right):
 
+![Success by type of request and agent (same numbers as the table below)](docs/img/by-request-type.svg)
+
+<details>
+<summary>Table version</summary>
+
 | Agent | Categorise | Reverse-charge VAT | Invoices | Money questions | VAT return check | Traps | Close / catch-up |
 |---|---|---|---|---|---|---|---|
 | Opus 5.5 | 100 % | 89 % | 100 % | 89 % | 100 % | 71 % | 67 % |
@@ -157,6 +164,8 @@ AI usage would cost at pay-as-you-go prices (the runs used flat-rate subscriptio
 | Sonnet 5.5 | 60 % | 33 % | 89 % | 93 % | 33 % | 86 % | 0 % |
 | Haiku 5.5 | 53 % | 22 % | 83 % | 89 % | 0 % | 76 % | 0 % |
 | gpt-6-luna | 67 % | 33 % | 78 % | 81 % | 17 % | 71 % | 0 % |
+
+</details>
 
 What stands out:
 - **Safe on the basics.** In 390 tries that could change the books, no agent wrote anything
@@ -177,7 +186,7 @@ What stands out:
 More: [`results/summary.md`](results/summary.md) (all tables, with 95 % intervals) ·
 [`results/notes.md`](results/notes.md) (failure patterns, grader fixes) · per try:
 [`results/results.jsonl`](results/results.jsonl) · charts:
-[by type](results/success_by_family.png), [safety](results/safety_violations.png),
+[capability vs safety](results/capability_vs_safety.png), [by type](results/success_by_family.png), [safety](results/safety_violations.png),
 [cost](results/cost_per_success.png).
 
 ## Glossary
@@ -304,7 +313,8 @@ minutes, includes the grader baselines); `cd server && npm ci && npm test`;
 | `bench/graders/` | deterministic graders |
 | `bench/report.py` | statistics, tables, charts |
 | `results/` | results of the pre-release version (a rerun on this code will replace them) |
-| `scripts/` | local CA for the fake server; the CLI option table the graders read |
+| `docs/img/` | the README visuals, built from `results/` by `scripts/make_visuals.py` |
+| `scripts/` | local CA for the fake server; the CLI option table the graders read; the README visuals |
 | `REVIEW-LOG.md` | what the independent reviewer found at each milestone, and what was fixed |
 
 MIT.

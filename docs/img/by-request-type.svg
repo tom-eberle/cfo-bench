@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="498" viewBox="0 0 1280 498" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', Inter, 'Segoe UI', system-ui, sans-serif" role="img" aria-label="Success by type of request and agent">
+<title>Success by type of request and agent</title>
+<rect x="1" y="1" width="1278" height="496" rx="22" fill="#ffffff" stroke="#e4e4e7"/>
+<text x="48" y="64" font-size="28" font-weight="700" fill="#18181b" text-anchor="start">Where they succeed, and where they don&#x27;t</text>
+<text x="48" y="96" font-size="17" font-weight="400" fill="#5b5b66" text-anchor="start">Share of tries done right, by type of request.</text>
+<text x="290" y="132" font-size="15" font-weight="600" fill="#3f3f46" text-anchor="middle">Categorise</text>
+<text x="430" y="123" font-size="15" font-weight="600" fill="#3f3f46" text-anchor="middle">Reverse-charge</text>
+<text x="430" y="141" font-size="15" font-weight="600" fill="#3f3f46" text-anchor="middle">VAT</text>
+<text x="570" y="132" font-size="15" font-weight="600" fill="#3f3f46" text-anchor="middle">Invoices</text>
+<text x="710" y="123" font-size="15" font-weight="600" fill="#3f3f46" text-anchor="middle">Money</text>
+<text x="710" y="141" font-size="15" font-weight="600" fill="#3f3f46" text-anchor="middle">questions</text>
+<text x="850" y="123" font-size="15" font-weight="600" fill="#3f3f46" text-anchor="middle">VAT</text>
+<text x="850" y="141" font-size="15" font-weight="600" fill="#3f3f46" text-anchor="middle">return check</text>
+<text x="990" y="132" font-size="15" font-weight="600" fill="#3f3f46" text-anchor="middle">Traps</text>
+<text x="1130" y="123" font-size="15" font-weight="600" fill="#3f3f46" text-anchor="middle">Close</text>
+<text x="1130" y="141" font-size="15" font-weight="600" fill="#3f3f46" text-anchor="middle">/ catch-up</text>
+<text x="48" y="190" font-size="18" font-weight="600" fill="#18181b" text-anchor="start">Opus 5.5</text>
+<text x="48" y="208" font-size="13" font-weight="400" fill="#5b5b66" text-anchor="start">Claude Code</text>
+<rect x="222" y="170" width="136" height="48" rx="8" fill="#0d366b" stroke="#0d366b"/>
+<text x="290" y="200" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">100 %</text>
+<rect x="362" y="170" width="136" height="48" rx="8" fill="#184f95" stroke="#184f95"/>
+<text x="430" y="200" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">89 %</text>
+<rect x="502" y="170" width="136" height="48" rx="8" fill="#0d366b" stroke="#0d366b"/>
+<text x="570" y="200" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">100 %</text>
+<rect x="642" y="170" width="136" height="48" rx="8" fill="#184f95" stroke="#184f95"/>
+<text x="710" y="200" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">89 %</text>
+<rect x="782" y="170" width="136" height="48" rx="8" fill="#0d366b" stroke="#0d366b"/>
+<text x="850" y="200" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">100 %</text>
+<rect x="922" y="170" width="136" height="48" rx="8" fill="#256abf" stroke="#256abf"/>
+<text x="990" y="200" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">71 %</text>
+<rect x="1062" y="170" width="136" height="48" rx="8" fill="#256abf" stroke="#256abf"/>
+<text x="1130" y="200" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">67 %</text>
+<text x="48" y="242" font-size="18" font-weight="600" fill="#18181b" text-anchor="start">gpt-6.1-sol</text>
+<text x="48" y="260" font-size="13" font-weight="400" fill="#5b5b66" text-anchor="start">Codex</text>
+<rect x="222" y="222" width="136" height="48" rx="8" fill="#0d366b" stroke="#0d366b"/>
+<text x="290" y="252" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">93 %</text>
+<rect x="362" y="222" width="136" height="48" rx="8" fill="#6da7ec" stroke="#6da7ec"/>
+<text x="430" y="252" font-size="17" font-weight="600" fill="#18181b" text-anchor="middle">44 %</text>
+<rect x="502" y="222" width="136" height="48" rx="8" fill="#0d366b" stroke="#0d366b"/>
+<text x="570" y="252" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">100 %</text>
+<rect x="642" y="222" width="136" height="48" rx="8" fill="#0d366b" stroke="#0d366b"/>
+<text x="710" y="252" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">100 %</text>
+<rect x="782" y="222" width="136" height="48" rx="8" fill="#256abf" stroke="#256abf"/>
+<text x="850" y="252" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">67 %</text>
+<rect x="922" y="222" width="136" height="48" rx="8" fill="#184f95" stroke="#184f95"/>
+<text x="990" y="252" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">86 %</text>
+<rect x="1062" y="222" width="136" height="48" rx="8" fill="#9ec5f4" stroke="#9ec5f4"/>
+<text x="1130" y="252" font-size="17" font-weight="600" fill="#18181b" text-anchor="middle">33 %</text>
+<text x="48" y="294" font-size="18" font-weight="600" fill="#18181b" text-anchor="start">Sonnet 5.5</text>
+<text x="48" y="312" font-size="13" font-weight="400" fill="#5b5b66" text-anchor="start">Claude Code</text>
+<rect x="222" y="274" width="136" height="48" rx="8" fill="#3987e5" stroke="#3987e5"/>
+<text x="290" y="304" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">60 %</text>
+<rect x="362" y="274" width="136" height="48" rx="8" fill="#9ec5f4" stroke="#9ec5f4"/>
+<text x="430" y="304" font-size="17" font-weight="600" fill="#18181b" text-anchor="middle">33 %</text>
+<rect x="502" y="274" width="136" height="48" rx="8" fill="#184f95" stroke="#184f95"/>
+<text x="570" y="304" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">89 %</text>
+<rect x="642" y="274" width="136" height="48" rx="8" fill="#184f95" stroke="#184f95"/>
+<text x="710" y="304" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">93 %</text>
+<rect x="782" y="274" width="136" height="48" rx="8" fill="#9ec5f4" stroke="#9ec5f4"/>
+<text x="850" y="304" font-size="17" font-weight="600" fill="#18181b" text-anchor="middle">33 %</text>
+<rect x="922" y="274" width="136" height="48" rx="8" fill="#184f95" stroke="#184f95"/>
+<text x="990" y="304" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">86 %</text>
+<rect x="1062" y="274" width="136" height="48" rx="8" fill="#f4f7fc" stroke="#e4e4e7"/>
+<text x="1130" y="304" font-size="17" font-weight="600" fill="#18181b" text-anchor="middle">0 %</text>
+<text x="48" y="346" font-size="18" font-weight="600" fill="#18181b" text-anchor="start">Haiku 5.5</text>
+<text x="48" y="364" font-size="13" font-weight="400" fill="#5b5b66" text-anchor="start">Claude Code</text>
+<rect x="222" y="326" width="136" height="48" rx="8" fill="#3987e5" stroke="#3987e5"/>
+<text x="290" y="356" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">53 %</text>
+<rect x="362" y="326" width="136" height="48" rx="8" fill="#9ec5f4" stroke="#9ec5f4"/>
+<text x="430" y="356" font-size="17" font-weight="600" fill="#18181b" text-anchor="middle">22 %</text>
+<rect x="502" y="326" width="136" height="48" rx="8" fill="#184f95" stroke="#184f95"/>
+<text x="570" y="356" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">83 %</text>
+<rect x="642" y="326" width="136" height="48" rx="8" fill="#184f95" stroke="#184f95"/>
+<text x="710" y="356" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">89 %</text>
+<rect x="782" y="326" width="136" height="48" rx="8" fill="#f4f7fc" stroke="#e4e4e7"/>
+<text x="850" y="356" font-size="17" font-weight="600" fill="#18181b" text-anchor="middle">0 %</text>
+<rect x="922" y="326" width="136" height="48" rx="8" fill="#256abf" stroke="#256abf"/>
+<text x="990" y="356" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">76 %</text>
+<rect x="1062" y="326" width="136" height="48" rx="8" fill="#f4f7fc" stroke="#e4e4e7"/>
+<text x="1130" y="356" font-size="17" font-weight="600" fill="#18181b" text-anchor="middle">0 %</text>
+<text x="48" y="398" font-size="18" font-weight="600" fill="#18181b" text-anchor="start">gpt-6-luna</text>
+<text x="48" y="416" font-size="13" font-weight="400" fill="#5b5b66" text-anchor="start">Codex</text>
+<rect x="222" y="378" width="136" height="48" rx="8" fill="#256abf" stroke="#256abf"/>
+<text x="290" y="408" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">67 %</text>
+<rect x="362" y="378" width="136" height="48" rx="8" fill="#9ec5f4" stroke="#9ec5f4"/>
+<text x="430" y="408" font-size="17" font-weight="600" fill="#18181b" text-anchor="middle">33 %</text>
+<rect x="502" y="378" width="136" height="48" rx="8" fill="#256abf" stroke="#256abf"/>
+<text x="570" y="408" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">78 %</text>
+<rect x="642" y="378" width="136" height="48" rx="8" fill="#184f95" stroke="#184f95"/>
+<text x="710" y="408" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">81 %</text>
+<rect x="782" y="378" width="136" height="48" rx="8" fill="#cde2fb" stroke="#cde2fb"/>
+<text x="850" y="408" font-size="17" font-weight="600" fill="#18181b" text-anchor="middle">17 %</text>
+<rect x="922" y="378" width="136" height="48" rx="8" fill="#256abf" stroke="#256abf"/>
+<text x="990" y="408" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">71 %</text>
+<rect x="1062" y="378" width="136" height="48" rx="8" fill="#f4f7fc" stroke="#e4e4e7"/>
+<text x="1130" y="408" font-size="17" font-weight="600" fill="#18181b" text-anchor="middle">0 %</text>
+<text x="48" y="470" font-size="14" font-weight="400" fill="#5b5b66" text-anchor="start">Close / catch-up = categorise, VAT and invoices, all in one go. Traps = filed months, hidden instructions, made-up invoices, an unexplained transfer.</text>
+</svg>

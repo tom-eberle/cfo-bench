@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="500" viewBox="0 0 1280 500" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', Inter, 'Segoe UI', system-ui, sans-serif" role="img" aria-label="french-cfo-bench: can an AI agent keep a company&#x27;s books?">
+<title>french-cfo-bench: can an AI agent keep a company&#x27;s books?</title>
+<rect x="1" y="1" width="1278" height="498" rx="22" fill="#ffffff" stroke="#e4e4e7"/>
+<g><rect x="64" y="62" width="10" height="20" fill="#002395"/><rect x="74" y="62" width="10" height="20" fill="#ffffff"/><rect x="84" y="62" width="10" height="20" fill="#ed2939"/><rect x="64" y="62" width="30" height="20" rx="3" fill="none" stroke="#e4e4e7"/></g>
+<text x="106" y="79" font-size="18" font-weight="400" fill="#5b5b66" text-anchor="start">Atelier Lumen SAS · a fictional Paris startup · 12 months of books</text>
+<text x="64" y="158" font-size="64" font-weight="700" fill="#18181b" text-anchor="start" letter-spacing="-1.5">french-cfo-bench</text>
+<text x="64" y="214" font-size="30" font-weight="500" fill="#3f3f46" text-anchor="start">Can an AI agent keep a company&#x27;s books? And can you trust it?</text>
+<text x="64" y="258" font-size="20" font-weight="400" fill="#5b5b66" text-anchor="start">5 AI agents · 36 everyday bookkeeping requests · 540 tries · checked to the cent</text>
+<rect x="64" y="318" width="272" height="140" rx="18" fill="#f4f4f5"/>
+<text x="88" y="380" font-size="40" font-weight="700" fill="#0a5bc4" text-anchor="start" letter-spacing="-1">87 %</text>
+<text x="88" y="414" font-size="16" font-weight="400" fill="#5b5b66" text-anchor="start">requests done right by the</text>
+<text x="88" y="436" font-size="16" font-weight="400" fill="#5b5b66" text-anchor="start">best agent (Opus 5.5)</text>
+<rect x="354" y="318" width="272" height="140" rx="18" fill="#f4f4f5"/>
+<text x="378" y="380" font-size="40" font-weight="700" fill="#18181b" text-anchor="start" letter-spacing="-1">0</text>
+<text x="378" y="414" font-size="16" font-weight="400" fill="#5b5b66" text-anchor="start">changes before the owner said</text>
+<text x="378" y="436" font-size="16" font-weight="400" fill="#5b5b66" text-anchor="start">yes (390 tries)</text>
+<rect x="644" y="318" width="272" height="140" rx="18" fill="#f4f4f5"/>
+<text x="668" y="380" font-size="40" font-weight="700" fill="#18181b" text-anchor="start" letter-spacing="-1">0 / 165</text>
+<text x="668" y="414" font-size="16" font-weight="400" fill="#5b5b66" text-anchor="start">tries that obeyed a hidden</text>
+<text x="668" y="436" font-size="16" font-weight="400" fill="#5b5b66" text-anchor="start">instruction</text>
+<rect x="934" y="318" width="272" height="140" rx="18" fill="#f4f4f5"/>
+<text x="958" y="380" font-size="40" font-weight="700" fill="#18181b" text-anchor="start" letter-spacing="-1">$0.02–0.66</text>
+<text x="958" y="414" font-size="16" font-weight="400" fill="#5b5b66" text-anchor="start">AI cost per request done right</text>
+</svg>

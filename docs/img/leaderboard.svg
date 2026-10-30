@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="534" viewBox="0 0 1280 534" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', Inter, 'Segoe UI', system-ui, sans-serif" role="img" aria-label="Requests done right, per agent">
+<title>Requests done right, per agent</title>
+<rect x="1" y="1" width="1278" height="532" rx="22" fill="#ffffff" stroke="#e4e4e7"/>
+<text x="48" y="64" font-size="28" font-weight="700" fill="#18181b" text-anchor="start">Requests done right</text>
+<text x="48" y="96" font-size="17" font-weight="400" fill="#5b5b66" text-anchor="start">36 requests × 3 tries per agent. Pre-release version, October 2026.</text>
+<text x="940" y="128" font-size="15" font-weight="600" fill="#5b5b66" text-anchor="middle">Nothing unsafe</text>
+<text x="1170" y="128" font-size="15" font-weight="600" fill="#5b5b66" text-anchor="middle">Cost per success</text>
+<text x="48" y="166" font-size="20" font-weight="600" fill="#18181b" text-anchor="start">Opus 5.5</text>
+<text x="48" y="188" font-size="14" font-weight="400" fill="#5b5b66" text-anchor="start">Claude Code</text>
+<rect x="360" y="154" width="520" height="26" rx="6" fill="#f4f4f5"/>
+<rect x="360" y="154" width="452.6" height="26" rx="6" fill="#0a5bc4"/>
+<text x="802.593" y="173" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">87 %</text>
+<text x="940" y="174" font-size="20" font-weight="600" fill="#18181b" text-anchor="middle">90 %</text>
+<text x="1170" y="174" font-size="20" font-weight="600" fill="#18181b" text-anchor="middle">$0.66</text>
+<line x1="48" x2="1232" y1="200" y2="200" stroke="#e4e4e7"/>
+<text x="48" y="230" font-size="20" font-weight="600" fill="#18181b" text-anchor="start">gpt-6.1-sol</text>
+<text x="48" y="252" font-size="14" font-weight="400" fill="#5b5b66" text-anchor="start">Codex</text>
+<rect x="360" y="218" width="520" height="26" rx="6" fill="#f4f4f5"/>
+<rect x="360" y="218" width="428.5" height="26" rx="6" fill="#0a5bc4"/>
+<text x="778.519" y="237" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">82 %</text>
+<text x="940" y="238" font-size="20" font-weight="600" fill="#18181b" text-anchor="middle">95 %</text>
+<text x="1170" y="238" font-size="20" font-weight="600" fill="#18181b" text-anchor="middle">$0.29</text>
+<line x1="48" x2="1232" y1="264" y2="264" stroke="#e4e4e7"/>
+<text x="48" y="294" font-size="20" font-weight="600" fill="#18181b" text-anchor="start">Sonnet 5.5</text>
+<text x="48" y="316" font-size="14" font-weight="400" fill="#5b5b66" text-anchor="start">Claude Code</text>
+<rect x="360" y="282" width="520" height="26" rx="6" fill="#f4f4f5"/>
+<rect x="360" y="282" width="351.5" height="26" rx="6" fill="#0a5bc4"/>
+<text x="701.481" y="301" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">68 %</text>
+<text x="940" y="302" font-size="20" font-weight="600" fill="#18181b" text-anchor="middle">95 %</text>
+<text x="1170" y="302" font-size="20" font-weight="600" fill="#18181b" text-anchor="middle">$0.21</text>
+<line x1="48" x2="1232" y1="328" y2="328" stroke="#e4e4e7"/>
+<text x="48" y="358" font-size="20" font-weight="600" fill="#18181b" text-anchor="start">Haiku 5.5</text>
+<text x="48" y="380" font-size="14" font-weight="400" fill="#5b5b66" text-anchor="start">Claude Code</text>
+<rect x="360" y="346" width="520" height="26" rx="6" fill="#f4f4f5"/>
+<rect x="360" y="346" width="313.0" height="26" rx="6" fill="#0a5bc4"/>
+<text x="662.963" y="365" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">60 %</text>
+<text x="940" y="366" font-size="20" font-weight="600" fill="#18181b" text-anchor="middle">94 %</text>
+<text x="1170" y="366" font-size="20" font-weight="600" fill="#18181b" text-anchor="middle">$0.03</text>
+<line x1="48" x2="1232" y1="392" y2="392" stroke="#e4e4e7"/>
+<text x="48" y="422" font-size="20" font-weight="600" fill="#18181b" text-anchor="start">gpt-6-luna</text>
+<text x="48" y="444" font-size="14" font-weight="400" fill="#5b5b66" text-anchor="start">Codex</text>
+<rect x="360" y="410" width="520" height="26" rx="6" fill="#f4f4f5"/>
+<rect x="360" y="410" width="313.0" height="26" rx="6" fill="#0a5bc4"/>
+<text x="662.963" y="429" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">60 %</text>
+<text x="940" y="430" font-size="20" font-weight="600" fill="#18181b" text-anchor="middle">92 %</text>
+<text x="1170" y="430" font-size="20" font-weight="600" fill="#18181b" text-anchor="middle">$0.02</text>
+<text x="48" y="506" font-size="14" font-weight="400" fill="#5b5b66" text-anchor="start">Cost: the same AI usage at pay-as-you-go prices. Intervals and all tables: results/summary.md.</text>
+</svg>

@@ -155,3 +155,11 @@ and DESIGN.md. It found 12 statements that described the grading rules too loose
 that every supplied document must be attached, when optional receipts may stay unattached; that
 the approval protocol applies to read-only questions) and 2 unclear terms. All were fixed. No
 code or result changed.
+
+## Release 0.2.2: README visuals
+
+Four images for the README (summary card, how a request runs, results per agent, results by type
+of request), built from the published results by `scripts/make_visuals.py`. The reviewer checked
+every number and label in them against the rows and the grading rules. It found 4 labels that
+said more than the data (for example, "165 hidden instructions" where it is 165 tries with one in
+reach, and a "to the cent" check that the close task does not have). All were fixed.
