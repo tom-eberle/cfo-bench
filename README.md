@@ -167,6 +167,10 @@ Each agent did each request 3 times, which makes 540 tries, on 20 and 21 October
 is what the same AI usage would cost at pay-as-you-go prices. The runs themselves used
 flat-rate subscriptions.
 
+Score against cost, per agent:
+
+![Requests done right against cost per request done right, log scale. Opus 5.5 87 % at $0.66, gpt-6.1-sol 82 % at $0.29, Sonnet 5.5 68 % at $0.21, Haiku 5.5 60 % at $0.03, gpt-6-luna 60 % at $0.02](docs/img/score-vs-cost.png)
+
 This chart shows the share of tries done right by type of request:
 
 ![Success by type of request and agent, with the same numbers as the table below](docs/img/by-request-type.svg)
